@@ -3,6 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Force light mode and prevent iOS Safari color inversion */
+*, *::before, *::after {
+  color-scheme: light only !important;
+  -webkit-color-scheme: light !important;
+}
+
 :root {
   color-scheme: light only;
   -webkit-color-scheme: light;
@@ -11,6 +18,7 @@
 html {
   color-scheme: light only;
   -webkit-color-scheme: light;
+  background: #000000 !important;
 }
 
 /* Force light mode on iOS Safari */
@@ -20,9 +28,24 @@ html {
   }
   html {
     color-scheme: light only;
+    background: #000000 !important;
   }
   body {
     color-scheme: light only;
+  }
+}
+
+/* Prevent iOS Safari from applying any color filters */
+@media (prefers-color-scheme: dark) {
+  *, *::before, *::after {
+    color-scheme: light only !important;
+    -webkit-color-scheme: light !important;
+  }
+  html {
+    background: #000000 !important;
+  }
+  body {
+    background: #000000 !important;
   }
 }
 body {
@@ -30,7 +53,8 @@ body {
     sans-serif;
   line-height: 1.6;
   color: #ffffff !important;
-  background: radial-gradient(
+  background: #000000 !important;
+  background-image: radial-gradient(
       ellipse at top,
       #000000 0%,
       #0d1117 40%,
@@ -596,4 +620,56 @@ body::after {
   color: #000;
   transform: scale(1.05);
   box-shadow: 0 8px 32px rgba(212, 175, 55, 0.28);
+}
+
+/* iOS Safari specific fixes to prevent color inversion */
+@supports (-webkit-touch-callout: none) {
+  /* This targets iOS Safari specifically */
+  *, *::before, *::after {
+    color-scheme: light only !important;
+    -webkit-color-scheme: light !important;
+  }
+  
+  html {
+    background: #000000 !important;
+    background-color: #000000 !important;
+  }
+  
+  body {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .container {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.04) 25%,
+      rgba(255, 255, 255, 0.02) 50%,
+      rgba(255, 255, 255, 0.04) 75%,
+      rgba(255, 255, 255, 0.06) 100%
+    ) !important;
+    color: #ffffff !important;
+  }
+  
+  .profile-name {
+    color: #ffffff !important;
+  }
+  
+  .profile-description {
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+  
+  .contact-item {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.04) 50%,
+      rgba(255, 255, 255, 0.08) 100%
+    ) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+  }
 }
