@@ -4,13 +4,32 @@
   box-sizing: border-box;
 }
 :root {
-  color-scheme: only light;
+  color-scheme: light only;
+  -webkit-color-scheme: light;
+}
+
+html {
+  color-scheme: light only;
+  -webkit-color-scheme: light;
+}
+
+/* Force light mode on iOS Safari */
+@supports (color-scheme: light) {
+  :root {
+    color-scheme: light only;
+  }
+  html {
+    color-scheme: light only;
+  }
+  body {
+    color-scheme: light only;
+  }
 }
 body {
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   line-height: 1.6;
-  color: #ffffff;
+  color: #ffffff !important;
   background: radial-gradient(
       ellipse at top,
       #000000 0%,
@@ -24,7 +43,7 @@ body {
       #2c2c2e 60%,
       #1c1c1e 90%,
       #000000 100%
-    );
+    ) !important;
   background-attachment: fixed;
   background-size: 100% 100%, 400% 400%;
   animation: luxuryGradient 20s ease infinite;
@@ -35,6 +54,8 @@ body {
   padding: 40px 20px;
   position: relative;
   overflow-x: hidden;
+  color-scheme: light only;
+  -webkit-color-scheme: light;
 }
 
 body::before {
@@ -114,7 +135,7 @@ body::after {
     rgba(255, 255, 255, 0.02) 50%,
     rgba(255, 255, 255, 0.04) 75%,
     rgba(255, 255, 255, 0.06) 100%
-  );
+  ) !important;
   border: 2px solid transparent;
   background-clip: padding-box;
   border-radius: 32px;
@@ -126,6 +147,7 @@ body::after {
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  color: #ffffff !important;
 }
 
 .container::before {
@@ -322,7 +344,7 @@ body::after {
 .profile-description {
   font-family: "Poppins", sans-serif;
   font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.85) !important;
   margin-bottom: 4rem;
   line-height: 1.9;
   max-width: 520px;
@@ -373,13 +395,13 @@ body::after {
     rgba(255, 255, 255, 0.08) 0%,
     rgba(255, 255, 255, 0.04) 50%,
     rgba(255, 255, 255, 0.08) 100%
-  );
+  ) !important;
   backdrop-filter: blur(20px) saturate(120%);
   border: 1px solid rgba(212, 175, 55, 0.2);
   border-radius: 16px;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.95) !important;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   min-width: 320px;
@@ -432,9 +454,9 @@ body::after {
     rgba(255, 255, 255, 0.12) 0%,
     rgba(212, 175, 55, 0.08) 50%,
     rgba(255, 255, 255, 0.12) 100%
-  );
+  ) !important;
   border-color: rgba(212, 175, 55, 0.5);
-  color: #ffffff;
+  color: #ffffff !important;
   transform: translateY(-4px) scale(1.02);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6),
     0 15px 40px rgba(212, 175, 55, 0.3), 0 0 30px rgba(255, 215, 0, 0.2),
@@ -549,7 +571,7 @@ body::after {
 .cta-description {
   font-family: "Poppins", sans-serif;
   font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.92) !important;
   margin-bottom: 2rem;
   font-weight: 300;
 }
