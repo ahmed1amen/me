@@ -98,6 +98,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/style.css" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     
     <!-- iOS Safari specific meta tags to prevent color inversion -->
@@ -113,7 +114,7 @@
   <body>
     <div class="container">
       
-      <img src="assets/me.jpg" alt="Ahmed Amen Ramadan" class="profile-picture" />
+      <img src="assets/me.jpg" alt="Ahmed Amen Ramadan" class="profile-picture" onerror="handleImageError(this)" />
       <h1 class="profile-name" data-text="Ahmed Amen">Ahmed Amen</h1>
       <p class="profile-title">Software Engineer & Entrepreneur</p>
       <p class="profile-description">
@@ -122,6 +123,14 @@
         high-performing teams. Expert in lean startup methodologies, marketing 
         strategy, and sales management for companies.
       </p>
+
+      <!-- Projects Section -->
+      <section class="projects-section">
+        <h2 class="projects-title">Featured Projects</h2>
+        <div class="projects-grid" id="projects-grid">
+          <!-- Projects will be generated dynamically by JavaScript -->
+        </div>
+      </section>
 
       
       <div class="contact-list">
@@ -146,16 +155,7 @@
           </svg>
           LinkedIn
         </a>
-
-        <a href="https://ahmedamen.com/" target="_blank" class="contact-item">
-          <svg class="contact-icon" viewBox="0 0 24 24">
-            <path
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-            />
-          </svg>
-          Website
-        </a>
-
+ 
         <a
           href="https://wa.me/201127677496"
           target="_blank"
@@ -186,6 +186,174 @@
       </div>
     </div>
     
+    <!-- Dynamic Projects Generator -->
+    <script>
+      // Projects data array - easy to manage and update
+      const projects = [
+        {
+          name: "Asharq Business",
+          url: "https://asharqbusiness.com/",
+          domain: "asharqbusiness.com",
+          displayUrl: "asharqbusiness.com",
+          image: "https://www.google.com/s2/favicons?domain=asharqbusiness.com&sz=128"
+        },
+        {
+          name: "Mrsool",
+          url: "https://mrsool.co/home/",
+          domain: "mrsool.co",
+          displayUrl: "mrsool.co",
+          image: "https://www.google.com/s2/favicons?domain=mrsool.co&sz=128"
+        },
+        {
+          name: "Daftra",
+          url: "https://www.daftra.com/en",
+          domain: "daftra.com",
+          displayUrl: "daftra.com",
+          image: "https://www.google.com/s2/favicons?domain=daftra.com&sz=128"
+        },
+        {
+          name: "Sellenvo",
+          url: "https://sellenvo.com/",
+          domain: "sellenvo.com",
+          displayUrl: "sellenvo.com",
+          image: "https://www.google.com/s2/favicons?domain=sellenvo.com&sz=128"
+        },
+        {
+          name: "Renuterra",
+          url: "https://renuterra.com/",
+          domain: "renuterra.com",
+          displayUrl: "renuterra.com",
+          image: "https://www.google.com/s2/favicons?domain=renuterra.com&sz=128"
+        },
+        {
+          name: "Knoetic",
+          url: "https://www.knoetic.com/",
+          domain: "knoetic.com",
+          displayUrl: "knoetic.com",
+          image: "https://www.google.com/s2/favicons?domain=knoetic.com&sz=128"
+        },
+        {
+          name: "McDelivery",
+          url: "https://www.mcdelivery.eg/eg/",
+          domain: "mcdelivery.eg",
+          displayUrl: "mcdelivery.eg",
+          image: "https://www.google.com/s2/favicons?domain=mcdelivery.eg&sz=128"
+        },
+        {
+          name: "Gazzer APP",
+          url: "https://gazzerapp.com/",
+          domain: "gazzerapp.com",
+          displayUrl: "gazzerapp.com",
+          image: "https://www.google.com/s2/favicons?domain=gazzerapp.com&sz=128"
+        },
+        {
+          name: "TV3LPC",
+          url: "https://tv3lpc.online/",
+          domain: "tv3lpc.online",
+          displayUrl: "tv3lpc.online",
+          image: "https://www.google.com/s2/favicons?domain=tv3lpc.online&sz=128"
+        },
+        {
+          name: "Alef IOT Platform",
+          url: "https://disrupt-x.io/alef-360-platform/",
+          domain: "disrupt-x.io",
+          displayUrl: "disrupt-x.io",
+          image: "https://disrupt-x.io/wp-content/uploads/2025/08/DX_Logo_Favicon.svg"
+        } ,
+         {
+          name: "Kroobia",
+          url: "https://kroobia.com/",
+          domain: "kroobia.com",
+          displayUrl: "kroobia.com",
+          image: "https://kroobia.com/storage/media/Rjl5TV990O8JZMjhIuL1sIIa1JnxtkLsYz8pv4vq.png"
+        },
+        {
+          name: "Earthlink",
+          url: "https://earthlink.iq/en/",
+          domain: "earthlink.iq",
+          displayUrl: "earthlink.iq",
+          image: "https://earthlink.iq/wp-content/uploads/2019/10/cropped-41631548927321433-32x32.png"
+        }
+      ];
+
+      // Function to handle image loading errors
+      function handleImageError(img) {
+        // Prevent infinite loop if the fallback also fails
+        if (img.getAttribute('data-fallback-used')) {
+          return;
+        }
+        img.setAttribute('data-fallback-used', 'true');
+        
+        const isProfilePicture = img.classList.contains('profile-picture');
+        
+        if (isProfilePicture) {
+          // First try the local fallback file, then inline SVG
+          img.onerror = function() {
+            const fallbackSvg = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="background: #333;">
+                <circle cx="50" cy="35" r="15" fill="#fff"/>
+                <path d="M20 80 Q20 65 35 65 h30 Q80 65 80 80 Z" fill="#fff"/>
+              </svg>
+            `)}`;
+            this.src = fallbackSvg;
+            this.onerror = null;
+          };
+          img.src = 'assets/fallback-profile.svg';
+        } else {
+          // For project favicons, try local fallback first
+          img.onerror = function() {
+            const fallbackSvg = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="background: #555;">
+                <rect x="20" y="25" width="60" height="45" rx="5" fill="none" stroke="#fff" stroke-width="3"/>
+                <line x1="20" y1="35" x2="80" y2="35" stroke="#fff" stroke-width="2"/>
+                <circle cx="30" cy="30" r="2" fill="#fff"/>
+                <circle cx="37" cy="30" r="2" fill="#fff"/>
+                <circle cx="44" cy="30" r="2" fill="#fff"/>
+                <rect x="30" y="45" width="40" height="3" fill="#fff"/>
+                <rect x="30" y="52" width="25" height="3" fill="#fff"/>
+              </svg>
+            `)}`;
+            this.src = fallbackSvg;
+            this.onerror = null;
+          };
+          img.src = 'assets/fallback-favicon.svg';
+        }
+      }
+
+      // Function to create a project card HTML
+      function createProjectCard(project) {
+        return `
+          <a href="${project.url}" target="_blank" class="project-card">
+            <svg class="external-link-icon" viewBox="0 0 24 24">
+              <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+            </svg>
+            <img src="${project.image}" alt="${project.name}" class="project-favicon" onerror="handleImageError(this)" />
+            <div class="project-name">${project.name}</div>
+            <div class="project-url">${project.displayUrl}</div>
+          </a>
+        `;
+      }
+
+      // Function to render all projects
+      function renderProjects() {
+        const projectsGrid = document.getElementById('projects-grid');
+        if (projectsGrid) {
+          // Clear existing content
+          projectsGrid.innerHTML = '';
+          
+          // Generate project cards using a for loop
+          for (let i = 0; i < projects.length; i++) {
+            projectsGrid.innerHTML += createProjectCard(projects[i]);
+          }
+        }
+      }
+
+      // Render projects when the DOM is loaded
+      document.addEventListener('DOMContentLoaded', function() {
+        renderProjects();
+      });
+    </script>
+
     <!-- Force correct styling on iOS Safari -->
     <script>
       // Detect iOS Safari and force correct styling
