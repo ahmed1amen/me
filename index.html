@@ -99,7 +99,7 @@
     />
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000'/><text x='16' y='22' font-family='Arial' font-size='16' fill='%23fff' text-anchor='middle' font-weight='bold'>A</text></svg>" type="image/svg+xml" />
     
     <!-- iOS Safari specific meta tags to prevent color inversion -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -262,7 +262,7 @@
         } ,
          {
           name: "Kroobia",
-          url: "https://kroobia.com/",
+          url: "https://kroobia.com/en/kroobia",
           domain: "kroobia.com",
           displayUrl: "kroobia.com",
           image: "https://kroobia.com/storage/media/Rjl5TV990O8JZMjhIuL1sIIa1JnxtkLsYz8pv4vq.png"
@@ -287,37 +287,15 @@
         const isProfilePicture = img.classList.contains('profile-picture');
         
         if (isProfilePicture) {
-          // First try the local fallback file, then inline SVG
-          img.onerror = function() {
-            const fallbackSvg = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="background: #333;">
-                <circle cx="50" cy="35" r="15" fill="#fff"/>
-                <path d="M20 80 Q20 65 35 65 h30 Q80 65 80 80 Z" fill="#fff"/>
-              </svg>
-            `)}`;
-            this.src = fallbackSvg;
-            this.onerror = null;
-          };
+          // Use the fallback profile SVG file
           img.src = 'assets/fallback-profile.svg';
         } else {
-          // For project favicons, try local fallback first
-          img.onerror = function() {
-            const fallbackSvg = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="background: #555;">
-                <rect x="20" y="25" width="60" height="45" rx="5" fill="none" stroke="#fff" stroke-width="3"/>
-                <line x1="20" y1="35" x2="80" y2="35" stroke="#fff" stroke-width="2"/>
-                <circle cx="30" cy="30" r="2" fill="#fff"/>
-                <circle cx="37" cy="30" r="2" fill="#fff"/>
-                <circle cx="44" cy="30" r="2" fill="#fff"/>
-                <rect x="30" y="45" width="40" height="3" fill="#fff"/>
-                <rect x="30" y="52" width="25" height="3" fill="#fff"/>
-              </svg>
-            `)}`;
-            this.src = fallbackSvg;
-            this.onerror = null;
-          };
+          // Use the fallback favicon SVG file
           img.src = 'assets/fallback-favicon.svg';
         }
+        
+        // Remove the onerror handler to prevent infinite loops
+        img.onerror = null;
       }
 
       // Function to create a project card HTML
