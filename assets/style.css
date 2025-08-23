@@ -597,9 +597,11 @@ body::after {
 
 .contact-list {
   display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
   align-items: center;
+  justify-content: center;
 }
 
 .contact-item {
@@ -621,7 +623,7 @@ body::after {
   color: rgba(255, 255, 255, 0.95) !important;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
-  min-width: 320px;
+  min-width: 220px;
   justify-content: center;
   font-weight: 400;
   position: relative;
@@ -768,8 +770,8 @@ body::after {
   }
 
   .contact-item {
-    min-width: 300px;
-    padding: 1.1rem 2.2rem;
+    min-width: 200px;
+    padding: 1.1rem 1.8rem;
     font-size: 0.95rem;
   }
 }
@@ -837,8 +839,8 @@ body::after {
   }
 
   .contact-item {
-    min-width: 280px;
-    padding: 1rem 2rem;
+    min-width: 180px;
+    padding: 1rem 1.5rem;
     font-size: 0.9rem;
   }
 }
