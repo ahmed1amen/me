@@ -204,7 +204,7 @@ class ProjectSlider {
       slider.addEventListener('mouseleave', () => {
         setTimeout(() => {
           isUserInteracting = false;
-        }, 2000); // Resume after 2 seconds
+        }, 250); // Resume after 0.25 seconds
       });
       
       // Pause on touch/drag
@@ -220,13 +220,13 @@ class ProjectSlider {
       slider.addEventListener('mouseup', () => {
         setTimeout(() => {
           isUserInteracting = false;
-        }, 2000);
+        }, 500); // Resume after 0.5 seconds
       });
       
       slider.addEventListener('touchend', () => {
         setTimeout(() => {
           isUserInteracting = false;
-        }, 2000);
+        }, 500); // Resume after 0.5 seconds
       });
     });
     
