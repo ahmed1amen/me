@@ -173,8 +173,17 @@
       <!-- Projects Section -->
       <section class="projects-section">
         <h2 class="projects-title">Featured Projects</h2>
-        <div class="projects-grid" id="projects-grid">
-          <!-- Projects will be generated dynamically by JavaScript -->
+        <div class="projects-sliders">
+          <div class="projects-slider" id="projects-slider-1">
+            <div class="projects-track" id="projects-track-1">
+              <!-- First row projects will be generated dynamically -->
+            </div>
+          </div>
+          <div class="projects-slider" id="projects-slider-2">
+            <div class="projects-track" id="projects-track-2">
+              <!-- Second row projects will be generated dynamically -->
+            </div>
+          </div>
         </div>
       </section>
 
@@ -258,255 +267,11 @@
       </div>
     </div>
 
-    <!-- Dynamic Projects Generator -->
-    <script>
-      // Projects data array - easy to manage and update
-      const projects = [
-        {
-          name: "Asharq Business",
-          url: "https://asharqbusiness.com/",
-          domain: "asharqbusiness.com",
-          displayUrl: "asharqbusiness.com",
-          image:
-            "https://www.google.com/s2/favicons?domain=asharqbusiness.com&sz=128",
-        },
-        {
-          name: "Mrsool",
-          url: "https://mrsool.co/home/",
-          domain: "mrsool.co",
-          displayUrl: "mrsool.co",
-          image: "https://www.google.com/s2/favicons?domain=mrsool.co&sz=128",
-        },
-        {
-          name: "Daftra",
-          url: "https://www.daftra.com/en",
-          domain: "daftra.com",
-          displayUrl: "daftra.com",
-          image: "https://www.google.com/s2/favicons?domain=daftra.com&sz=128",
-        },
-        {
-          name: "Sellenvo",
-          url: "https://sellenvo.com/",
-          domain: "sellenvo.com",
-          displayUrl: "sellenvo.com",
-          image:
-            "https://www.google.com/s2/favicons?domain=sellenvo.com&sz=128",
-        },
-        {
-          name: "Renuterra",
-          url: "https://renuterra.com/",
-          domain: "renuterra.com",
-          displayUrl: "renuterra.com",
-          image:
-            "https://www.google.com/s2/favicons?domain=renuterra.com&sz=128",
-        },
-        {
-          name: "Knoetic",
-          url: "https://www.knoetic.com/",
-          domain: "knoetic.com",
-          displayUrl: "knoetic.com",
-          image: "https://www.google.com/s2/favicons?domain=knoetic.com&sz=128",
-        },
-        {
-          name: "Zamn",
-          url: "https://zamn.app/",
-          domain: "zamn.app",
-          displayUrl: "zamn.app",
-          image: "https://www.google.com/s2/favicons?domain=zamn.app&sz=128",
-        },
-        {
-          name: "McDelivery",
-          url: "https://www.mcdelivery.eg/eg/",
-          domain: "mcdelivery.eg",
-          displayUrl: "mcdelivery.eg",
-          image:
-            "https://www.google.com/s2/favicons?domain=mcdelivery.eg&sz=128",
-        },
-        {
-          name: "Gazzer APP",
-          url: "https://gazzerapp.com/",
-          domain: "gazzerapp.com",
-          displayUrl: "gazzerapp.com",
-          image:
-            "https://www.google.com/s2/favicons?domain=gazzerapp.com&sz=128",
-        },
-        {
-          name: "TV3LPC",
-          url: "https://tv3lpc.online/",
-          domain: "tv3lpc.online",
-          displayUrl: "tv3lpc.online",
-          image:
-            "https://www.google.com/s2/favicons?domain=tv3lpc.online&sz=128",
-        },
-        {
-          name: "Alef IOT Platform",
-          url: "https://disrupt-x.io/alef-360-platform/",
-          domain: "disrupt-x.io",
-          displayUrl: "disrupt-x.io",
-          image:
-            "https://disrupt-x.io/wp-content/uploads/2025/08/DX_Logo_Favicon.svg",
-        },
-        {
-          name: "Aqarzway",
-          url: "https://jo.aqarzway.com/",
-          domain: "aqarzway.com",
-          displayUrl: "aqarzway.com",
-          image:
-            "https://jo.aqarzway.com/storage/app/ico/thumb-32x32-ico-63d9623ed14b8.png",
-        },
-        {
-          name: "Kroobia",
-          url: "https://kroobia.com/en/kroobia",
-          domain: "kroobia.com",
-          displayUrl: "kroobia.com",
-          image:
-            "https://kroobia.com/storage/media/Rjl5TV990O8JZMjhIuL1sIIa1JnxtkLsYz8pv4vq.png",
-        },
-        {
-          name: "Earthlink",
-          url: "https://earthlink.iq/en/",
-          domain: "earthlink.iq",
-          displayUrl: "earthlink.iq",
-          image:
-            "https://earthlink.iq/wp-content/uploads/2019/10/cropped-41631548927321433-32x32.png",
-        },
-        {
-          name: "Cashbayt",
-          url: "https://cashbayt.com/lang/en",
-          domain: "cashbayt.com",
-          displayUrl: "cashbayt.com",
-          image:
-            "https://www.google.com/s2/favicons?domain=cashbayt.com&sz=128",
-        },
-        {
-          name: "Sennarh",
-          url: "https://sennarh.com/lang/en",
-          domain: "sennarh.com",
-          displayUrl: "sennarh.com",
-          image: "https://www.google.com/s2/favicons?domain=sennarh.com&sz=128",
-        },
-      ];
-
-      // Function to handle image loading errors
-      function handleImageError(img) {
-        // Prevent infinite loop if the fallback also fails
-        if (img.getAttribute("data-fallback-used")) {
-          return;
-        }
-        img.setAttribute("data-fallback-used", "true");
-
-        const isProfilePicture = img.classList.contains("profile-picture");
-
-        if (isProfilePicture) {
-          // Use the fallback profile SVG file
-          img.src = "assets/fallback-profile.svg";
-        } else {
-          // Use the fallback favicon SVG file
-          img.src = "assets/fallback-favicon.svg";
-        }
-
-        // Remove the onerror handler to prevent infinite loops
-        img.onerror = null;
-      }
-
-      // Function to create a project card HTML
-      function createProjectCard(project) {
-        return `
-          <a href="${project.url}" target="_blank" class="project-card">
-            <svg class="external-link-icon" viewBox="0 0 24 24">
-              <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
-            </svg>
-            <img src="${project.image}" alt="${project.name}" class="project-favicon" onerror="handleImageError(this)" />
-            <div class="project-name">${project.name}</div>
-            <div class="project-url">${project.displayUrl}</div>
-          </a>
-        `;
-      }
-
-      // Function to render all projects
-      function renderProjects() {
-        const projectsGrid = document.getElementById("projects-grid");
-        if (projectsGrid) {
-          // Clear existing content
-          projectsGrid.innerHTML = "";
-
-          // Generate project cards using a for loop
-          for (let i = 0; i < projects.length; i++) {
-            projectsGrid.innerHTML += createProjectCard(projects[i]);
-          }
-        }
-      }
-
-      // Render projects when the DOM is loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        renderProjects();
-      });
-    </script>
-
-    <!-- Force correct styling on iOS Safari -->
-    <script>
-      // Detect iOS Safari and force correct styling
-      function isIOSSafari() {
-        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      }
-
-      if (isIOSSafari()) {
-        // Force body background to black
-        document.body.style.setProperty("background", "#000000", "important");
-        document.body.style.setProperty(
-          "background-color",
-          "#000000",
-          "important"
-        );
-        document.body.style.setProperty("color", "#ffffff", "important");
-
-        // Force html background to black
-        document.documentElement.style.setProperty(
-          "background",
-          "#000000",
-          "important"
-        );
-        document.documentElement.style.setProperty(
-          "background-color",
-          "#000000",
-          "important"
-        );
-
-        // Force color scheme
-        document.documentElement.style.setProperty(
-          "color-scheme",
-          "light only",
-          "important"
-        );
-        document.body.style.setProperty(
-          "color-scheme",
-          "light only",
-          "important"
-        );
-
-        // Add additional style overrides
-        const style = document.createElement("style");
-        style.textContent = `
-          * { 
-            color-scheme: light only !important; 
-            -webkit-color-scheme: light !important; 
-          }
-          html, body { 
-            background: #000000 !important; 
-            background-color: #000000 !important; 
-          }
-          .container { 
-            color: #ffffff !important; 
-          }
-          .profile-description { 
-            color: rgba(255, 255, 255, 0.85) !important; 
-          }
-          .contact-item { 
-            color: rgba(255, 255, 255, 0.95) !important; 
-          }
-        `;
-        document.head.appendChild(style);
-      }
-    </script>
+    <!-- JavaScript Files -->
+    <script src="assets/projects-data.js"></script>
+    <script src="assets/utils.js"></script>
+    <script src="assets/project-slider.js"></script>
+    <script src="assets/ios-handler.js"></script>
+    <script src="assets/main.js"></script>
   </body>
 </html>
