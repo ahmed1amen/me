@@ -843,6 +843,20 @@ body::after {
     padding: 1rem 1.5rem;
     font-size: 0.9rem;
   }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .cta-button,
+  .consultation-button {
+    width: 100%;
+    max-width: 280px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    margin: 0.25rem;
+  }
 }
 .cta-section {
   margin-top: 3rem;
@@ -874,26 +888,82 @@ body::after {
   font-weight: 300;
 }
 .cta-button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   padding: 1rem 2.5rem;
   font-size: 1.1rem;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-  color: #2c3e50;
-  background: linear-gradient(90deg, #ffd700 0%, #d4af37 100%);
-  border: none;
+  color: #000000;
+  background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+  border: 2px solid rgba(212, 175, 55, 0.3);
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(212, 175, 55, 0.18);
   text-decoration: none;
-  transition: background 0.3s, color 0.3s, transform 0.3s;
+  transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
+  margin: 0.5rem;
 }
+
+.consultation-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #000000;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  margin: 0.5rem;
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
 .cta-button:hover {
-  background: linear-gradient(90deg, #d4af37 0%, #ffd700 100%);
-  color: #000;
+  background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+  color: #000000;
   transform: scale(1.05);
   box-shadow: 0 8px 32px rgba(212, 175, 55, 0.28);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.consultation-button:hover {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  color: #000000;
+  transform: scale(1.05);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.18);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.cta-button:hover .button-icon,
+.consultation-button:hover .button-icon {
+  transform: scale(1.1);
 }
 
 /* iOS Safari specific fixes to prevent color inversion */
