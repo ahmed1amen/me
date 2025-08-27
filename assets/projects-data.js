@@ -82,7 +82,7 @@ const projects = [
     domain: "disrupt-x.io",
     displayUrl: "disrupt-x.io",
     image:
-      "https://disrupt-x.io/wp-content/uploads/2025/08/DX_Logo_Favicon.svg",
+      "https://www.google.com/s2/favicons?domain=disrupt-x.io&sz=128",
   },
   {
     name: "Aqarzway",
