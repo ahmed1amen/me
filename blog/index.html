@@ -1,0 +1,62 @@
+---
+layout: default
+title: "Blog - Ahmed Amen"
+description: "Insights on software engineering, entrepreneurship, and building scalable systems"
+---
+
+<div class="blog-container">
+  <header class="blog-header">
+    <h1 class="blog-title">Blog</h1>
+    <p class="blog-description">
+      Insights on software engineering, entrepreneurship, and building scalable systems that serve millions
+    </p>
+  </header>
+
+  <div class="blog-posts">
+    {% for post in site.posts %}
+    <article class="blog-post-preview">
+      <header class="post-preview-header">
+        <h2 class="post-preview-title">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </h2>
+        <div class="post-preview-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+          {% if post.categories %}
+          <div class="post-preview-categories">
+            {% for category in post.categories %}
+            <span class="post-preview-category">{{ category }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </header>
+      
+      <div class="post-preview-content">
+        {% if post.excerpt %}
+          {{ post.excerpt | strip_html | truncatewords: 50 }}
+        {% else %}
+          {{ post.content | strip_html | truncatewords: 50 }}
+        {% endif %}
+      </div>
+      
+      <footer class="post-preview-footer">
+        <a href="{{ post.url }}" class="read-more">Read More →</a>
+        {% if post.tags %}
+        <div class="post-preview-tags">
+          {% for tag in post.tags limit:3 %}
+          <a href="/tags/{{ tag | slugify }}" class="post-preview-tag-link">#{{ tag }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </footer>
+    </article>
+    {% endfor %}
+    
+    {% if site.posts.size == 0 %}
+    <div class="no-posts">
+      <h3>Coming Soon!</h3>
+      <p>Blog posts will appear here. Stay tuned for insights on software engineering and entrepreneurship.</p>
+    </div>
+    {% endif %}
+  </div>
+</div>

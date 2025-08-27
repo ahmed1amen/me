@@ -1,0 +1,60 @@
+# Site settings
+title: "Ahmed Amen Ramadan - Software Engineer"
+description: "13+ years transforming ideas into production-ready systems that scale to millions of users. Specialized in building enterprise-grade products with clean APIs and robust infrastructure."
+baseurl: ""
+url: "https://ahmedamen.com"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# Blog settings
+paginate: 5
+paginate_path: "/blog/page/:num/"
+
+# SEO settings
+author: Ahmed Amen Ramadan
+twitter:
+  username: ahmed1amen
+  card: summary_large_image
+
+social:
+  name: Ahmed Amen Ramadan
+  links:
+    - https://www.linkedin.com/in/ahmed1amen/
+    - https://ahmedamen.com/
+
+# Jekyll settings
+permalink: pretty
+timezone: Africa/Cairo
+encoding: utf-8
+
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .gitignore
+
+# Include files
+include:
+  - _pages
+  - 404.html
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
