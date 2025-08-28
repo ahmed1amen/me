@@ -94,7 +94,7 @@ const projects = [
   },
   {
     name: "Kroobia",
-    url: "https://kroobia.com/en/kroobia",
+    url: "https://kroobia.com/en",
     domain: "kroobia.com",
     displayUrl: "kroobia.com",
     image:
