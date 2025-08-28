@@ -1,0 +1,104 @@
+---
+layout: default
+title: "Page Not Found - Ahmed Amen"
+description: "The page you're looking for doesn't exist. Let me help you find what you need."
+permalink: /404.html
+---
+
+<div class="error-container">
+  <div class="error-content">
+    <div class="error-animation">
+      <div class="error-number">4<span class="rotating">0</span>4</div>
+      <div class="error-text">Page Not Found</div>
+    </div>
+    
+    <div class="error-message">
+      <h2>Oops! This page seems to have wandered off...</h2>
+      <p>
+        Don't worry, even the best systems encounter 404s. The page you're looking for 
+        might have been moved, deleted, or the URL might be incorrect.
+      </p>
+    </div>
+    
+    <div class="error-actions">
+      <div class="primary-actions">
+        <a href="/" class="error-button primary">
+          <svg class="button-icon" viewBox="0 0 24 24">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+          </svg>
+          Back to Home
+        </a>
+        
+        <a href="/blog" class="error-button secondary">
+          <svg class="button-icon" viewBox="0 0 24 24">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+          </svg>
+          Browse Blog
+        </a>
+      </div>
+      
+      <div class="search-section">
+        <h3>Looking for something specific?</h3>
+        <div class="quick-links">
+          <a href="/blog" class="quick-link">Latest Posts</a>
+          <a href="/tags" class="quick-link">Browse Tags</a>
+          <a href="#contact" class="quick-link">Contact Me</a>
+        </div>
+      </div>
+      
+      <div class="helpful-info">
+        <h3>Popular Content</h3>
+        <div class="popular-posts">
+          <div class="popular-post">
+            <a href="/2024/02/20/api-design-best-practices.html" class="post-link">
+              <span class="post-title">API Design Best Practices</span>
+              <span class="post-category">Engineering</span>
+            </a>
+          </div>
+          <div class="popular-post">
+            <a href="/2024/02/03/entrepreneurial-lessons-from-code.html" class="post-link">
+              <span class="post-title">Entrepreneurial Lessons from Code</span>
+              <span class="post-category">Business</span>
+            </a>
+          </div>
+          <div class="popular-post">
+            <a href="/2024/01/15/building-scalable-systems.html" class="post-link">
+              <span class="post-title">Building Scalable Systems</span>
+              <span class="post-category">Architecture</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="error-footer">
+        <p>
+          Still can't find what you're looking for? 
+          <a href="mailto:me@ahmedamen.com" class="contact-link">Drop me an email</a> 
+          and I'll help you out.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Add some interaction to the 404 page
+document.addEventListener('DOMContentLoaded', function() {
+  const rotatingZero = document.querySelector('.rotating');
+  
+  if (rotatingZero) {
+    // Rotate the middle 0 continuously
+    setInterval(() => {
+      rotatingZero.style.transform = `rotate(${Date.now() / 10 % 360}deg)`;
+    }, 50);
+  }
+  
+  // Track 404 errors (if you have analytics)
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'page_view', {
+      page_title: '404 - Page Not Found',
+      page_location: window.location.href
+    });
+  }
+});
+</script>
