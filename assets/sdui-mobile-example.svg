@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 500" style="background-color: #f8f9fa;">
+  <defs>
+    <style>
+      .title { font: bold 16px Arial; fill: #2c3e50; }
+      .text { font: 12px Arial; fill: #34495e; }
+      .phone { fill: #ffffff; stroke: #34495e; stroke-width: 3; rx: 20; }
+      .screen { fill: #000000; rx: 15; }
+      .ui-element { fill: #ffffff; stroke: #ddd; stroke-width: 1; rx: 4; }
+      .button { fill: #3498db; rx: 6; }
+      .button-text { font: 12px Arial; fill: white; }
+      .code-bg { fill: #f1f2f6; stroke: #ddd; stroke-width: 1; rx: 4; }
+      .code { font: 10px monospace; fill: #2f3542; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="300" y="30" text-anchor="middle" class="title">Server-Driven UI in Action</text>
+  
+  <!-- Phone Frame -->
+  <rect x="50" y="60" width="180" height="320" class="phone"/>
+  
+  <!-- Phone Screen -->
+  <rect x="65" y="85" width="150" height="270" class="screen"/>
+  
+  <!-- Screen Content Background -->
+  <rect x="70" y="90" width="140" height="260" fill="#f8f9fa"/>
+  
+  <!-- Header -->
+  <rect x="75" y="95" width="130" height="30" class="ui-element"/>
+  <text x="140" y="115" text-anchor="middle" class="text" font-weight="bold">Welcome Back!</text>
+  
+  <!-- Profile Image -->
+  <circle cx="95" cy="150" r="15" fill="#e8f4fd" stroke="#3498db"/>
+  <text x="95" y="155" text-anchor="middle" class="text">👤</text>
+  
+  <!-- User Info -->
+  <rect x="120" y="135" width="80" height="30" class="ui-element"/>
+  <text x="125" y="150" class="text" font-size="11">John Doe</text>
+  <text x="125" y="162" class="text" font-size="9">Premium Member</text>
+  
+  <!-- Stats Cards -->
+  <rect x="75" y="180" width="40" height="35" class="ui-element"/>
+  <text x="95" y="195" text-anchor="middle" class="text" font-size="9">Orders</text>
+  <text x="95" y="208" text-anchor="middle" class="text" font-weight="bold">12</text>
+  
+  <rect x="125" y="180" width="40" height="35" class="ui-element"/>
+  <text x="145" y="195" text-anchor="middle" class="text" font-size="9">Points</text>
+  <text x="145" y="208" text-anchor="middle" class="text" font-weight="bold">850</text>
+  
+  <rect x="175" y="180" width="25" height="35" class="ui-element"/>
+  <text x="187" y="195" text-anchor="middle" class="text" font-size="8">Tier</text>
+  <text x="187" y="208" text-anchor="middle" class="text" font-weight="bold">🥇</text>
+  
+  <!-- Menu Items -->
+  <rect x="75" y="230" width="130" height="25" class="ui-element"/>
+  <text x="80" y="247" class="text" font-size="11">📦 My Orders</text>
+  <text x="195" y="247" class="text" font-size="11">›</text>
+  
+  <rect x="75" y="260" width="130" height="25" class="ui-element"/>
+  <text x="80" y="277" class="text" font-size="11">⭐ Favorites</text>
+  <text x="195" y="277" class="text" font-size="11">›</text>
+  
+  <rect x="75" y="290" width="130" height="25" class="ui-element"/>
+  <text x="80" y="307" class="text" font-size="11">⚙️ Settings</text>
+  <text x="195" y="307" class="text" font-size="11">›</text>
+  
+  <!-- Action Button -->
+  <rect x="75" y="325" width="130" height="20" class="button"/>
+  <text x="140" y="338" text-anchor="middle" class="button-text">Shop Now</text>
+  
+  <!-- Arrow -->
+  <path d="M 250 200 L 290 200" stroke="#3498db" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#3498db" />
+  </marker>
+  
+  <!-- JSON Configuration -->
+  <rect x="310" y="60" width="280" height="320" class="code-bg"/>
+  <text x="320" y="80" class="text" font-weight="bold">Server Configuration:</text>
+  
+  <text x="320" y="105" class="code">{</text>
+  <text x="330" y="120" class="code">"type": "profile_screen",</text>
+  <text x="330" y="135" class="code">"user_data": {</text>
+  <text x="340" y="150" class="code">"name": "John Doe",</text>
+  <text x="340" y="165" class="code">"tier": "premium",</text>
+  <text x="340" y="180" class="code">"orders": 12,</text>
+  <text x="340" y="195" class="code">"points": 850</text>
+  <text x="330" y="210" class="code">},</text>
+  <text x="330" y="225" class="code">"components": [</text>
+  <text x="340" y="240" class="code">{</text>
+  <text x="350" y="255" class="code">"type": "header",</text>
+  <text x="350" y="270" class="code">"text": "Welcome Back!"</text>
+  <text x="340" y="285" class="code">},</text>
+  <text x="340" y="300" class="code">{</text>
+  <text x="350" y="315" class="code">"type": "user_profile",</text>
+  <text x="350" y="330" class="code">"show_tier_badge": true</text>
+  <text x="340" y="345" class="code">},</text>
+  <text x="340" y="360" class="code">{</text>
+  <text x="350" y="375" class="code">"type": "button",</text>
+  <text x="350" y="390" class="code">"text": "Shop Now",</text>
+  <text x="350" y="405" class="code">"action": "navigate_to_shop"</text>
+  <text x="340" y="420" class="code">}</text>
+  <text x="330" y="435" class="code">]</text>
+  <text x="320" y="450" class="code">}</text>
+  
+  <!-- Update Note -->
+  <text x="300" y="480" text-anchor="middle" class="text" font-style="italic">✨ Updates instantly without app store approval!</text>
+</svg>

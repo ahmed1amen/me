@@ -46,6 +46,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}" />
+    <!-- Prism.js Dark Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
     <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml" />
     <link
       rel="icon"
@@ -95,6 +97,10 @@
     <div class="main-content">
       {{ content }}
     </div>
+
+    <!-- Prism.js for Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 
     <!-- JavaScript Files -->
     <script src="{{ '/assets/projects-data.js' | relative_url }}"></script>

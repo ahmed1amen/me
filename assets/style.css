@@ -510,12 +510,30 @@ body {
 }
 
 .post-content pre {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 8px;
+  background: rgba(12, 12, 24, 0.8);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
   padding: 1.5rem;
   overflow-x: auto;
-  margin-bottom: 1.5rem;
+  margin: 2rem 0;
+  line-height: 1.6;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.post-content pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  color: #e0e6ed;
+  font-size: inherit;
+}
+
+.post-content pre:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
 }
 
 .post-content blockquote {
