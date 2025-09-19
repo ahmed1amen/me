@@ -1,26 +1,131 @@
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "{{ site.author }}",
-  "jobTitle": "Software Engineer & Entrepreneur",
-  "description": "{{ site.description }}",
-  "url": "{{ site.url }}",
-  "email": "me@ahmedamen.com",
-  "sameAs": [
-    "https://www.linkedin.com/in/ahmed1amen/",
-    "{{ site.url }}"
-  ],
-  "knowsAbout": [
-    "Software Engineering",
-    "Enterprise Architecture",
-    "Entrepreneurship",
-    "Lean Startup Methodology",
-    "Team Building & Leadership",
-    "Marketing Strategy",
-    "Sales Management",
-    "API Development",
-    "Scalable Systems"
-  ]
-}
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ site.author }}",
+    "jobTitle": "Senior Software Engineer",
+    "description": "{{ site.description }}",
+    "url": "{{ site.url }}",
+    "email": "me@ahmedamen.com",
+    "telephone": "+201127677496",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "EG"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/ahmed1amen/",
+      "https://github.com/ahmed1amen",
+      "{{ site.url }}"
+    ],
+    "knowsAbout": [
+      "Software Engineering",
+      "Full Stack Development", 
+      "Enterprise Architecture",
+      "Microservices Architecture",
+      "API Development",
+      "Cloud Solutions",
+      "Scalable Systems",
+      "Backend Development",
+      "Frontend Development",
+      "Mobile App Development",
+      "Database Design",
+      "DevOps",
+      "Technical Leadership",
+      "Software Consulting",
+      "Custom Software Development"
+    ],
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Senior Software Engineer",
+      "occupationLocation": {
+        "@type": "Country",
+        "name": "Egypt"
+      },
+      "skills": [
+        "JavaScript",
+        "TypeScript", 
+        "Python",
+        "Java",
+        "React",
+        "Node.js",
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "PostgreSQL",
+        "MongoDB",
+        "Redis",
+        "GraphQL",
+        "REST APIs"
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Ahmed Amen Software Engineering Services",
+    "description": "Professional software engineering and development services for enterprises and startups",
+    "provider": {
+      "@type": "Person",
+      "name": "{{ site.author }}"
+    },
+    "url": "{{ site.url }}",
+    "areaServed": "Worldwide",
+    "serviceType": "Software Development",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Software Engineering Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Enterprise Software Development",
+            "description": "Custom enterprise-grade software solutions"
+          }
+        },
+        {
+          "@type": "Offer", 
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Full Stack Web Development",
+            "description": "End-to-end web application development"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service", 
+            "name": "API Development & Integration",
+            "description": "RESTful APIs and third-party integrations"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Software Architecture Consulting", 
+            "description": "Technical architecture and system design consultation"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Ahmed Amen Ramadan - Software Engineer",
+    "url": "{{ site.url }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ site.author }}"
+    },
+    "description": "{{ site.description }}",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ site.url }}/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+]
 </script>

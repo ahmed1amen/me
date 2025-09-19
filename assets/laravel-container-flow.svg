@@ -1,0 +1,88 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: bold 16px sans-serif; fill: #2d3748; }
+      .subtitle { font: 12px sans-serif; fill: #4a5568; }
+      .box { fill: #f7fafc; stroke: #2d3748; stroke-width: 2; rx: 8; }
+      .container-box { fill: #ebf8ff; stroke: #3182ce; stroke-width: 2; rx: 8; }
+      .arrow { fill: none; stroke: #4a5568; stroke-width: 2; marker-end: url(#arrowhead); }
+      .dependency-arrow { fill: none; stroke: #38a169; stroke-width: 2; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a5568" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title" text-anchor="middle">Laravel Service Container Flow</text>
+  
+  <!-- Controller -->
+  <rect x="50" y="60" width="140" height="80" class="box" />
+  <text x="120" y="85" class="subtitle" text-anchor="middle">Controller</text>
+  <text x="120" y="105" class="subtitle" text-anchor="middle">needs</text>
+  <text x="120" y="125" class="subtitle" text-anchor="middle">OrderService</text>
+  
+  <!-- Service Container -->
+  <rect x="280" y="40" width="240" height="320" class="container-box" />
+  <text x="400" y="65" class="title" text-anchor="middle">Service Container</text>
+  
+  <!-- Container internals -->
+  <rect x="300" y="80" width="80" height="60" class="box" />
+  <text x="340" y="100" class="subtitle" text-anchor="middle">Order</text>
+  <text x="340" y="115" class="subtitle" text-anchor="middle">Service</text>
+  <text x="340" y="130" class="subtitle" text-anchor="middle">Recipe</text>
+  
+  <rect x="420" y="80" width="80" height="60" class="box" />
+  <text x="460" y="100" class="subtitle" text-anchor="middle">User</text>
+  <text x="460" y="115" class="subtitle" text-anchor="middle">Repository</text>
+  <text x="460" y="130" class="subtitle" text-anchor="middle">Recipe</text>
+  
+  <rect x="300" y="160" width="80" height="60" class="box" />
+  <text x="340" y="180" class="subtitle" text-anchor="middle">Email</text>
+  <text x="340" y="195" class="subtitle" text-anchor="middle">Service</text>
+  <text x="340" y="210" class="subtitle" text-anchor="middle">Recipe</text>
+  
+  <rect x="420" y="160" width="80" height="60" class="box" />
+  <text x="460" y="180" class="subtitle" text-anchor="middle">Payment</text>
+  <text x="460" y="195" class="subtitle" text-anchor="middle">Gateway</text>
+  <text x="460" y="210" class="subtitle" text-anchor="middle">Recipe</text>
+  
+  <!-- Resolved instances -->
+  <rect x="300" y="240" width="200" height="40" class="box" />
+  <text x="400" y="265" class="subtitle" text-anchor="middle">Fully Resolved OrderService Instance</text>
+  
+  <!-- Database -->
+  <rect x="580" y="90" width="120" height="60" class="box" />
+  <text x="640" y="115" class="subtitle" text-anchor="middle">Database</text>
+  <text x="640" y="135" class="subtitle" text-anchor="middle">Connection</text>
+  
+  <!-- SMTP -->
+  <rect x="580" y="170" width="120" height="60" class="box" />
+  <text x="640" y="195" class="subtitle" text-anchor="middle">SMTP</text>
+  <text x="640" y="215" class="subtitle" text-anchor="middle">Configuration</text>
+  
+  <!-- Arrows -->
+  <!-- Controller to Container -->
+  <line x1="190" y1="100" x2="280" y2="100" class="arrow" />
+  
+  <!-- Dependencies -->
+  <line x1="380" y1="110" x2="420" y2="110" class="dependency-arrow" />
+  <line x1="340" y1="160" x2="340" y2="140" class="dependency-arrow" />
+  <line x1="460" y1="160" x2="460" y2="140" class="dependency-arrow" />
+  
+  <!-- External dependencies -->
+  <line x1="500" y1="110" x2="580" y2="110" class="dependency-arrow" />
+  <line x1="500" y1="190" x2="580" y2="190" class="dependency-arrow" />
+  
+  <!-- Resolution -->
+  <line x1="400" y1="220" x2="400" y2="240" class="dependency-arrow" />
+  
+  <!-- Return to controller -->
+  <line x1="280" y1="260" x2="190" y2="120" class="arrow" />
+  
+  <!-- Steps -->
+  <text x="50" y="320" class="subtitle">1. Controller requests OrderService</text>
+  <text x="50" y="340" class="subtitle">2. Container analyzes dependencies</text>
+  <text x="50" y="360" class="subtitle">3. Auto-resolves entire dependency chain</text>
+  <text x="50" y="380" class="subtitle">4. Returns fully configured instance</text>
+</svg>

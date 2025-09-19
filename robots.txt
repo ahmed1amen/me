@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Important pages for indexing
+Allow: /blog/
+Allow: /contact
+Allow: /_posts/
+
+# Sitemap location
+Sitemap: https://ahmedamen.com/sitemap.xml
+
+# Optimize crawl budget - block unnecessary files
+Disallow: /vendor/
+Disallow: /assets/projects-data.js
+Disallow: /_site/
+Disallow: /Gemfile*
+Disallow: /.git/
+Disallow: /.gitignore
+Disallow: /README.md
+
+# Allow search engines to crawl important assets
+Allow: /assets/me.jpg
+Allow: /favicon.svg
+Allow: /assets/style.css

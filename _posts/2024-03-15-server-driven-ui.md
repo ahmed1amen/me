@@ -495,12 +495,12 @@ class ListComponentBuilder extends ComponentBuilder {
   ) {
     final processed = Map<String, dynamic>.from(template);
     
-    // Simple template processing - replace {{item.key}} with values
+    // Simple template processing - replace {% raw %}{{item.key}}{% endraw %} with values
     processed.forEach((key, value) {
-      if (value is String && value.contains('{{item.')) {
+      if (value is String && value.contains('{% raw %}{{item.{% endraw %}')) {
         final fieldName = value
-            .replaceAll('{{item.', '')
-            .replaceAll('}}', '');
+            .replaceAll('{% raw %}{{item.{% endraw %}', '')
+            .replaceAll('{% raw %}}}{% endraw %}', '');
         processed[key] = item[fieldName] ?? value;
       }
     });
