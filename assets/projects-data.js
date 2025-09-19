@@ -10,7 +10,7 @@ const projects = [
   },
   {
     name: "Mrsool",
-    url: "https://mrsool.co/home/",
+    url: "https://en.wikipedia.org/wiki/Mrsool",
     domain: "mrsool.co",
     displayUrl: "mrsool.co",
     image: "https://www.google.com/s2/favicons?domain=mrsool.co&sz=128",
@@ -110,7 +110,7 @@ const projects = [
   },
   {
     name: "Cashbayt",
-    url: "https://cashbayt.com/lang/en",
+    url: "https://cashbayt.com/",
     domain: "cashbayt.com",
     displayUrl: "cashbayt.com",
     image:
@@ -118,7 +118,7 @@ const projects = [
   },
   {
     name: "Sennarh",
-    url: "https://sennarh.com/lang/en",
+    url: "https://sennarh.com/",
     domain: "sennarh.com",
     displayUrl: "sennarh.com",
     image: "https://www.google.com/s2/favicons?domain=sennarh.com&sz=128",
