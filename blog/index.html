@@ -13,7 +13,7 @@ description: "Insights on software engineering, entrepreneurship, and building s
   </header>
 
   <div class="blog-posts">
-    {% for post in site.posts %}
+    {% for post in paginator.posts %}
     <article class="blog-post-preview">
       <header class="post-preview-header">
         <h2 class="post-preview-title">
@@ -30,7 +30,7 @@ description: "Insights on software engineering, entrepreneurship, and building s
           {% endif %}
         </div>
       </header>
-      
+
       <div class="post-preview-content">
         {% if post.excerpt %}
           {{ post.excerpt | strip_html | truncatewords: 50 }}
@@ -38,7 +38,7 @@ description: "Insights on software engineering, entrepreneurship, and building s
           {{ post.content | strip_html | truncatewords: 50 }}
         {% endif %}
       </div>
-      
+
       <footer class="post-preview-footer">
         <a href="{{ post.url }}" class="read-more">Read More →</a>
         {% if post.tags %}
@@ -51,12 +51,41 @@ description: "Insights on software engineering, entrepreneurship, and building s
       </footer>
     </article>
     {% endfor %}
-    
-    {% if site.posts.size == 0 %}
+
+    {% if paginator.posts.size == 0 %}
     <div class="no-posts">
       <h3>Coming Soon!</h3>
       <p>Blog posts will appear here. Stay tuned for insights on software engineering and entrepreneurship.</p>
     </div>
     {% endif %}
   </div>
+
+  <!-- Pagination -->
+  {% if paginator.total_pages > 1 %}
+  <nav class="pagination">
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path }}" class="pagination-prev">← Newer Posts</a>
+    {% else %}
+      <span class="pagination-prev disabled">← Newer Posts</span>
+    {% endif %}
+
+    <div class="pagination-pages">
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <span class="pagination-page active">{{ page }}</span>
+        {% elsif page == 1 %}
+          <a href="/blog/" class="pagination-page">{{ page }}</a>
+        {% else %}
+          <a href="/blog/page/{{ page }}/" class="pagination-page">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path }}" class="pagination-next">Older Posts →</a>
+    {% else %}
+      <span class="pagination-next disabled">Older Posts →</span>
+    {% endif %}
+  </nav>
+  {% endif %}
 </div>
