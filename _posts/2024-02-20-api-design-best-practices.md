@@ -4,7 +4,7 @@ title: "API Design Best Practices: Building Interfaces That Last"
 date: 2024-02-20 09:15:00 +0200
 categories: [Engineering, API]
 tags: [api-design, rest, graphql, microservices, best-practices]
-author: Ahmed Amen Ramadan
+author: Ahmed Amen
 excerpt: "Good API design is like good architecture—it should be intuitive, scalable, and stand the test of time."
 ---
 

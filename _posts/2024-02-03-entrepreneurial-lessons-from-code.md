@@ -4,7 +4,7 @@ title: "What Software Engineering Taught Me About Entrepreneurship"
 date: 2024-02-03 14:30:00 +0200
 categories: [Entrepreneurship, Leadership]
 tags: [startup, leadership, product-development, lean-methodology]
-author: Ahmed Amen Ramadan
+author: Ahmed Amen
 excerpt: "The principles that make great software—modularity, testing, iteration—are the same ones that build successful businesses."
 ---
 

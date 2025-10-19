@@ -4,7 +4,7 @@ title: "Server-Driven UI: Building Dynamic Interfaces That Scale"
 date: 2024-03-15 10:30:00 +0200
 categories: [Engineering, Frontend]
 tags: [server-driven-ui, mobile, architecture, scalability, json-ui]
-author: Ahmed Amen Ramadan
+author: Ahmed Amen
 excerpt: "Server-Driven UI lets you update your app's interface without releasing new versions—here's how to build it right."
 ---
 

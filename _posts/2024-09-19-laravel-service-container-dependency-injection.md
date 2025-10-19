@@ -4,7 +4,7 @@ title: "Laravel Service Container & Dependency Injection: The Complete Guide"
 date: 2024-09-19 14:30:00 +0200
 categories: [Engineering, Backend]
 tags: [laravel, php, dependency-injection, service-container, architecture, design-patterns]
-author: Ahmed Amen Ramadan
+author: Ahmed Amen
 excerpt: "Master Laravel's service container, dependency injection, automatic binding, and service providers—the foundation that makes Laravel's magic possible."
 ---
 

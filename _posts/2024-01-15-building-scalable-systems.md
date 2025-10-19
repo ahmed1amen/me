@@ -4,7 +4,7 @@ title: "Building Scalable Systems: Lessons from 13+ Years in Software Engineerin
 date: 2024-01-15 10:00:00 +0200
 categories: [Engineering, Architecture]
 tags: [scalability, microservices, architecture, performance]
-author: Ahmed Amen Ramadan
+author: Ahmed Amen
 excerpt: "Over 13 years of building systems that serve millions of users, I've learned that scalability isn't just about handling more traffic—it's about building systems that can evolve with your business needs."
 ---
 
