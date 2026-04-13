@@ -37,6 +37,7 @@ html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 92, 0, 0.35) rgba(20, 16, 8, 0.6);
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar { width: 5px; height: 5px; }
@@ -443,6 +444,7 @@ body::after {
 }
 
 .hero-avatar {
+  object-position: 25%;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -526,6 +528,25 @@ body::after {
   margin: 0 auto;
 }
 
+.companies-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.companies-count {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-dim);
+  border: 1px solid rgba(255, 92, 0, 0.2);
+  border-radius: 20px;
+  padding: 3px 10px;
+  letter-spacing: 0.04em;
+}
+
 .companies-label {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 0.72rem;
@@ -533,15 +554,165 @@ body::after {
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  margin-bottom: 28px;
-  text-align: center;
 }
 
-/* Projects slider (shared with home) */
+/* ── Orbit scene ────────────────────────────────────── */
+
+@keyframes orbit-cw  { to { transform: rotate( 360deg); } }
+@keyframes orbit-ccw { to { transform: rotate(-360deg); } }
+
+.orbit-scene {
+  position: relative;
+  width: 570px;
+  height: 570px;
+  margin: 36px auto 0;
+}
+
+/* Ring tracks */
+.orbit-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 92, 0, 0.18);
+}
+
+.orbit-ring--inner {
+  width: 300px; height: 300px;
+  margin: -150px 0 0 -150px;
+  animation: orbit-cw 22s linear infinite;
+}
+
+.orbit-ring--outer {
+  width: 510px; height: 510px;
+  margin: -255px 0 0 -255px;
+  animation: orbit-ccw 38s linear infinite;
+}
+
+/* Each logo is positioned via x/y coordinates (no rotation on wrapper,
+   so inner orbit-upright only needs to cancel the ring spin) */
+.orbit-item-wrap {
+  position: absolute;
+  top: calc(50% + var(--oy) - 31px);
+  left: calc(50% + var(--ox) - 31px);
+  width: 62px; height: 62px;
+}
+
+/* Counter-rotate to keep logos upright */
+.orbit-ring--inner .orbit-upright { animation: orbit-ccw 22s linear infinite; }
+.orbit-ring--outer .orbit-upright { animation: orbit-cw  38s linear infinite; }
+
+/* Logo circle */
+.orbit-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px; height: 62px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  text-decoration: none;
+  overflow: visible;
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.orbit-logo:hover {
+  border-color: var(--border-active);
+  box-shadow: 0 0 18px var(--accent-glow);
+  transform: scale(1.15);
+  z-index: 20;
+}
+
+.orbit-logo img {
+  width: 38px; height: 38px;
+  object-fit: contain;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Tooltip */
+.orbit-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 4px 9px;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 30;
+}
+
+.orbit-logo:hover .orbit-tooltip { opacity: 1; }
+
+/* Center orb */
+.orbit-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, var(--bg-elevated), var(--bg-surface));
+  border: 1px solid var(--border-active);
+  box-shadow:
+    0 0 0 8px rgba(255, 92, 0, 0.04),
+    0 0 32px rgba(255, 92, 0, 0.14),
+    inset 0 0 16px rgba(255, 92, 0, 0.06);
+  z-index: 10;
+}
+
+.orbit-center-num {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.orbit-center-txt {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.5rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 3px;
+}
+
+/* Mobile: center + scale the orbit scene */
+@media (max-width: 640px) {
+  .companies-section {
+    overflow: hidden; /* clip the scaled scene edges */
+  }
+
+  .orbit-scene {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%) scale(0.54);
+    transform-origin: top center;
+    margin-top: 36px;
+    margin-bottom: -240px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* ── Projects slider (fallback / legacy) ─────────────── */
 .projects-sliders {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
 .projects-slider {
@@ -552,8 +723,8 @@ body::after {
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding: 6px 0;
-  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
 }
 
 .projects-slider::-webkit-scrollbar { display: none; }
@@ -566,102 +737,97 @@ body::after {
   width: max-content;
 }
 
+/* Horizontal pill card */
 .project-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  width: 210px;
+  height: 68px;
+  flex-shrink: 0;
+  padding: 0 16px 0 12px;
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
-  padding: 16px 12px;
-  transition: all 0.28s cubic-bezier(0.23, 1, 0.32, 1);
   text-decoration: none;
   color: var(--text-primary);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
   position: relative;
   overflow: hidden;
-  width: 148px;
-  min-height: 148px;
-  flex-shrink: 0;
+  transition: border-color 0.22s ease, background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
 }
 
-.project-card::before {
+.project-card::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 60%);
+  background: linear-gradient(110deg, var(--accent-dim) 0%, transparent 55%);
   opacity: 0;
-  transition: opacity 0.28s ease;
+  transition: opacity 0.22s ease;
 }
 
 .project-card:hover {
   border-color: var(--border-active);
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 4px 16px var(--accent-glow);
+  background: var(--glass-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.4), 0 2px 10px var(--accent-glow);
 }
 
-.project-card:hover::before { opacity: 1; }
+.project-card:hover::after { opacity: 1; }
 
 .project-favicon {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
-  margin-bottom: 12px;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--bg-elevated);
+  padding: 4px;
   flex-shrink: 0;
-  transition: transform 0.28s ease;
+  transition: transform 0.22s ease;
 }
 
-.project-card:hover .project-favicon {
-  transform: scale(1.08);
-  box-shadow: 0 4px 14px var(--accent-glow);
+.project-card:hover .project-favicon { transform: scale(1.06); }
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  flex: 1;
 }
 
 .project-name {
-  font-family: "Outfit", sans-serif;
-  font-size: 0.85rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 6px;
-  line-height: 1.3;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  max-height: 2.6em;
+  line-height: 1.2;
 }
 
 .project-url {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 0.67rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.62rem;
   color: var(--text-muted);
-  line-height: 1.2;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  max-height: 2.4em;
-  margin-top: auto;
-  padding-top: 6px;
 }
 
 .external-link-icon {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   fill: currentColor;
-  opacity: 0.25;
-  transition: opacity 0.2s;
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  color: var(--text-muted);
+  opacity: 0.3;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 .project-card:hover .external-link-icon {
-  opacity: 0.65;
+  opacity: 0.9;
   color: var(--accent);
 }
 

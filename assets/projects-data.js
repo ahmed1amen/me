@@ -5,8 +5,8 @@ const projects = [
     url: "https://asharqbusiness.com/",
     domain: "asharqbusiness.com",
     displayUrl: "asharqbusiness.com",
-    image:
-      "https://www.google.com/s2/favicons?domain=asharqbusiness.com&sz=128",
+    image: "https://www.google.com/s2/favicons?domain=asharqbusiness.com&sz=128",
+    bg: "",
   },
   {
     name: "Mrsool",
@@ -14,6 +14,7 @@ const projects = [
     domain: "mrsool.co",
     displayUrl: "mrsool.co",
     image: "https://www.google.com/s2/favicons?domain=mrsool.co&sz=128",
+    bg: "",
   },
   {
     name: "Daftra",
@@ -21,22 +22,23 @@ const projects = [
     domain: "daftra.com",
     displayUrl: "daftra.com",
     image: "https://www.google.com/s2/favicons?domain=daftra.com&sz=128",
+    bg: "",
   },
   {
     name: "Sellenvo",
     url: "https://sellenvo.com/",
     domain: "sellenvo.com",
     displayUrl: "sellenvo.com",
-    image:
-      "https://www.google.com/s2/favicons?domain=sellenvo.com&sz=128",
+    image: "https://www.google.com/s2/favicons?domain=sellenvo.com&sz=128",
+    bg: "",
   },
   {
     name: "Renuterra",
     url: "https://renuterra.com/",
     domain: "renuterra.com",
     displayUrl: "renuterra.com",
-    image:
-      "https://www.google.com/s2/favicons?domain=renuterra.com&sz=128",
+    image: "https://www.google.com/s2/favicons?domain=renuterra.com&sz=128",
+    bg: "",
   },
   {
     name: "Knoetic",
@@ -44,6 +46,7 @@ const projects = [
     domain: "knoetic.com",
     displayUrl: "knoetic.com",
     image: "https://www.google.com/s2/favicons?domain=knoetic.com&sz=128",
+    bg: "",
   },
   {
     name: "Zamn",
@@ -51,70 +54,73 @@ const projects = [
     domain: "zamn.app",
     displayUrl: "zamn.app",
     image: "https://www.google.com/s2/favicons?domain=zamn.app&sz=128",
+    bg: "",
   },
   {
     name: "McDelivery",
     url: "https://www.mcdelivery.eg/eg/",
     domain: "mcdelivery.eg",
     displayUrl: "mcdelivery.eg",
-    image:
-      "https://www.google.com/s2/favicons?domain=mcdelivery.eg&sz=128",
+    image: "https://www.google.com/s2/favicons?domain=mcdelivery.eg&sz=128",
+    bg: "",
   },
   {
     name: "Gazzer APP",
     url: "https://gazzerapp.com/",
     domain: "gazzerapp.com",
     displayUrl: "gazzerapp.com",
-    image:
-      "https://www.google.com/s2/favicons?domain=gazzerapp.com&sz=128",
+    image: "https://www.google.com/s2/favicons?domain=gazzerapp.com&sz=128",
+    bg: "",
   },
-  {
-    name: "Fitness Time",
-    url: "https://fitnesstime.com.sa/",
-    domain: "fitnesstime.com.sa",
-    displayUrl: "fitnesstime.com.sa",
-    image:
-      "https://www.google.com/s2/favicons?domain=fitnesstime.com.sa&sz=128",
-  },
+  
   {
     name: "Alef IOT Platform",
     url: "https://disrupt-x.io/alef-360-platform/",
     domain: "disrupt-x.io",
     displayUrl: "disrupt-x.io",
-    image:
-      "https://www.google.com/s2/favicons?domain=disrupt-x.io&sz=128",
+    image: "https://www.google.com/s2/favicons?domain=disrupt-x.io&sz=128",
+    bg: "",
   },
   {
     name: "Aqarzway",
     url: "https://jo.aqarzway.com/",
     domain: "aqarzway.com",
     displayUrl: "aqarzway.com",
-    image:
-      "https://jo.aqarzway.com/storage/app/ico/thumb-32x32-ico-63d9623ed14b8.png",
+    image: "https://jo.aqarzway.com/storage/app/ico/thumb-32x32-ico-63d9623ed14b8.png",
+    bg: "",
+  },
+  {
+    name: "Ticket Fairy",
+    url: "https://www.ticketfairy.com",
+    domain: "ticketfairy.com",
+    displayUrl: "ticketfairy.com",
+    image: "https://avatars.githubusercontent.com/u/4474971?s=200&v=4",
+    bg: "#ffffff",
   },
   {
     name: "Kroobia",
     url: "https://kroobia.com/en",
     domain: "kroobia.com",
     displayUrl: "kroobia.com",
-    image:
-      "https://kroobia.com/storage/media/Rjl5TV990O8JZMjhIuL1sIIa1JnxtkLsYz8pv4vq.png",
+    image: "https://kroobia.com/storage/media/Rjl5TV990O8JZMjhIuL1sIIa1JnxtkLsYz8pv4vq.png",
+    bg: "",
   },
+    
   {
     name: "Earthlink",
     url: "https://earthlink.iq/en/",
     domain: "earthlink.iq",
     displayUrl: "earthlink.iq",
-    image:
-      "https://earthlink.iq/wp-content/uploads/2019/10/cropped-41631548927321433-32x32.png",
+    image: "https://earthlink.iq/wp-content/uploads/2019/10/cropped-41631548927321433-32x32.png",
+    bg: "",
   },
   {
     name: "Cashbayt",
     url: "https://cashbayt.com/",
     domain: "cashbayt.com",
     displayUrl: "cashbayt.com",
-    image:
-      "https://www.google.com/s2/favicons?domain=cashbayt.com&sz=128",
+    image: "https://www.google.com/s2/favicons?domain=cashbayt.com&sz=128",
+    bg: "",
   },
   {
     name: "Sennarh",
@@ -122,5 +128,32 @@ const projects = [
     domain: "sennarh.com",
     displayUrl: "sennarh.com",
     image: "https://www.google.com/s2/favicons?domain=sennarh.com&sz=128",
+    bg: "",
+  },
+
+  {
+    name: "Aptive Environmental",
+    url: "https://aptivepestcontrol.com/",
+    domain: "aptive.com",
+    displayUrl: "aptive.com",
+    image: "https://www.google.com/s2/favicons?domain=aptivepestcontrol.com&sz=128",
+    bg: "",
+  },
+  {
+    name: "Moyasar",
+    url: "https://moyasar.com/en/",
+    domain: "moyasar.com",
+    displayUrl: "moyasar.com",
+    image: "https://www.google.com/s2/favicons?domain=moyasar.com&sz=128",
+    bg: "#ffffff",
+  },
+  {
+    name: "Fitness Time",
+    url: "https://fitnesstime.com.sa/",
+    domain: "fitnesstime.com.sa",
+    displayUrl: "fitnesstime.com.sa",
+    image: "https://www.google.com/s2/favicons?domain=fitnesstime.com.sa&sz=128",
+    bg: "",
   },
 ];
+

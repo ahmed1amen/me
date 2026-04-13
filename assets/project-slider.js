@@ -6,14 +6,23 @@ class ProjectSlider {
 
   // Function to create a project card HTML
   createProjectCard(project) {
+    const bg = project.bg || '';
     return `
       <a href="${project.url}" target="_blank" class="project-card">
+        <img
+          src="${project.image}"
+          alt="${project.name}"
+          class="project-favicon"
+          style="${bg ? `background:${bg}` : ''}"
+          onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/${project.domain}.ico'"
+        />
+        <div class="project-info">
+          <span class="project-name">${project.name}</span>
+          <span class="project-url">${project.displayUrl}</span>
+        </div>
         <svg class="external-link-icon" viewBox="0 0 24 24">
           <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
         </svg>
-        <img src="${project.image}" alt="${project.name}" class="project-favicon" onerror="handleImageError(this)" />
-        <div class="project-name">${project.name}</div>
-        <div class="project-url">${project.displayUrl}</div>
       </a>
     `;
   }
@@ -170,29 +179,38 @@ class ProjectSlider {
     
     sliders.forEach((slider, index) => {
       let isUserInteracting = false;
-      let autoPlayDirection = 1; // 1 for forward, -1 for backward
-      
+      // Row 0 → left, Row 1 → right (opposite directions)
+      let autoPlayDirection = index === 0 ? 1 : -1;
+
+      // Row 1 starts scrolled to the end so it travels right→left
+      if (index === 1) {
+        requestAnimationFrame(() => {
+          const track = slider.querySelector('.projects-track');
+          slider.scrollLeft = track ? track.scrollWidth : 0;
+        });
+      }
+
       // Auto-play function
       const autoPlay = () => {
         if (isUserInteracting) return;
-        
+
         const track = slider.querySelector('.projects-track');
         const maxScroll = track.scrollWidth - slider.clientWidth;
         const scrollStep = 1; // Pixels to scroll per frame
-        
-        // Check if we need to reverse direction
+
+        // Bounce at boundaries
         if (slider.scrollLeft >= maxScroll - 10) {
           autoPlayDirection = -1;
         } else if (slider.scrollLeft <= 10) {
           autoPlayDirection = 1;
         }
-        
+
         // Scroll the slider
         slider.scrollLeft += scrollStep * autoPlayDirection;
       };
-      
-      // Start auto-play with different speeds for each slider
-      const speed = index === 0 ? 30 : 40; // Different speeds for variety
+
+      // Slightly different speeds for each row
+      const speed = index === 0 ? 28 : 35;
       const intervalId = setInterval(autoPlay, speed);
       this.autoPlayIntervals.push(intervalId);
       
@@ -236,11 +254,54 @@ class ProjectSlider {
     });
   }
 
-  // Initialize all slider functionality
+  // ── Orbit rendering ──────────────────────────────────────────
+
+  createOrbitItem(project, angleDeg, radius) {
+    const rad = (angleDeg * Math.PI) / 180;
+    const x   = Math.round(Math.cos(rad) * radius);
+    const y   = Math.round(Math.sin(rad) * radius);
+    const bg = project.bg || '';
+    return `
+      <div class="orbit-item-wrap" style="--ox:${x}px;--oy:${y}px">
+        <div class="orbit-upright">
+          <a href="${project.url}" target="_blank" class="orbit-logo" title="${project.name}"${bg ? ` style="background:${bg}"` : ''}>
+            <img src="${project.image}" alt="${project.name}"
+                 onerror="this.onerror=null;this.src='https://icons.duckduckgo.com/ip3/${project.domain}.ico'" />
+            <span class="orbit-tooltip">${project.name}</span>
+          </a>
+        </div>
+      </div>`;
+  }
+
+  renderOrbits() {
+    const innerRing = document.getElementById('orbit-inner');
+    const outerRing = document.getElementById('orbit-outer');
+    if (!innerRing || !outerRing) return;
+
+    const mid = Math.ceil(projects.length / 2);
+    const inner = projects.slice(0, mid);
+    const outer = projects.slice(mid);
+
+    inner.forEach((p, i) => {
+      const angle = (i / inner.length) * 360 - 90; // start from top
+      innerRing.innerHTML += this.createOrbitItem(p, angle, 130);
+    });
+
+    outer.forEach((p, i) => {
+      const angle = (i / outer.length) * 360 - 90;
+      outerRing.innerHTML += this.createOrbitItem(p, angle, 235);
+    });
+  }
+
+  // Initialize all slider/orbit functionality
   init() {
-    this.renderProjectSliders();
-    this.initializeDragSliders();
-    this.initializeAutoPlay();
+    if (document.getElementById('orbit-inner')) {
+      this.renderOrbits();
+    } else {
+      this.renderProjectSliders();
+      this.initializeDragSliders();
+      this.initializeAutoPlay();
+    }
   }
 }
 
