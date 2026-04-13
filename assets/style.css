@@ -1754,38 +1754,50 @@ body::after {
     padding: 8px 32px; /* buffer so badges don't clip screen edges */
   }
 
-  /* Wrap is larger than the photo — badges orbit the outer boundary */
+  /* Grid layout: badges orbit above/below the photo — zero overlap */
   .hero-avatar-wrap {
-    width: 270px;
-    height: 270px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "b1 b2"
+      "photo photo"
+      "b3 b4";
+    gap: 12px 8px;
+    width: 300px;
+    height: auto;
     margin: 0 auto;
+    position: static; /* exit abs-positioning context */
   }
 
-  /* Photo centered & smaller inside the wrap */
+  /* Photo spans both columns, centered */
   .hero-avatar {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 190px;
-    height: 190px;
-    border-radius: 20px;
+    grid-area: photo;
+    position: static;
+    transform: none;
+    width: 220px;
+    height: 220px;
+    border-radius: 22px;
+    justify-self: center;
   }
 
-  /* Badges visible, slightly smaller text */
+  /* Badges participate in grid, keep float animation */
   .skill-float {
-    display: block;
-    padding: 5px 10px;
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 13px;
     font-size: 0.68rem;
+    top: auto; right: auto; bottom: auto; left: auto;
   }
 
-  /* Reposition around the 270px wrap — badges are ~40px from photo edge */
-  .skill-float--1 { top: -4px;  left: -4px;  }
-  .skill-float--2 { top: 32px;  right: -6px; }
-  .skill-float--3 { bottom: 44px; left: -6px;  }
-  .skill-float--4 { bottom: -4px; right: -4px; }
+  .skill-float--1 { grid-area: b1; justify-self: end;   animation: floatA 3s   ease-in-out infinite; }
+  .skill-float--2 { grid-area: b2; justify-self: start; animation: floatA 3.5s ease-in-out infinite 0.4s; }
+  .skill-float--3 { grid-area: b3; justify-self: end;   animation: floatB 4s   ease-in-out infinite 0.8s; }
+  .skill-float--4 { grid-area: b4; justify-self: start; animation: floatB 3.5s ease-in-out infinite 1.2s; }
 
-  /* Hide static pills — floating badges are used instead */
+  /* Hide static pills — grid badges are used instead */
   .skill-pills-mobile { display: none; }
 
   /* Availability badge — center on mobile */
@@ -1892,11 +1904,15 @@ body::after {
   .hero-section { padding: 28px 16px 44px; }
 
   .hero-avatar-wrap {
-    width: 172px;
-    height: 172px;
+    width: 260px;  /* narrower on small screens */
+    gap: 10px 6px;
   }
 
-  .hero-avatar { border-radius: 18px; }
+  .hero-avatar {
+    width: 190px;
+    height: 190px;
+    border-radius: 18px;
+  }
 
   /* Full-width CTA buttons */
   .hero-actions {

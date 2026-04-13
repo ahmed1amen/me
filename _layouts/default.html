@@ -1,113 +1,115 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary Meta Tags -->
-    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <meta name="title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}" />
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
-    <meta name="keywords" content="software engineer for hire, senior software developer, full stack engineer, enterprise software development, custom software solutions, scalable web applications, microservices architecture, API development services, cloud solutions architect, software consultant, backend developer, frontend developer, mobile app development, e-commerce development, startup CTO, technical lead, software engineering services, programming consultant, web development services, application development" />
-    <meta name="author" content="{{ site.author }}" />
-    <meta name="robots" content="index, follow" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ page.url | absolute_url }}" />
-    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}" />
-    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
-    <meta property="og:image" content="{{ '/assets/me.jpg' | absolute_url }}" />
-    <meta property="og:image:alt" content="{{ site.author }}" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="{{ site.author }}" />
-    <meta property="og:locale" content="en_US" />
+  <!-- Primary Meta Tags -->
+  <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="title"
+    content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}" />
+  <meta name="description"
+    content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+  <meta name="keywords"
+    content="software engineer for hire, senior software developer, full stack engineer, enterprise software development, custom software solutions, scalable web applications, microservices architecture, API development services, cloud solutions architect, software consultant, backend developer, frontend developer, mobile app development, e-commerce development, startup CTO, technical lead, software engineering services, programming consultant, web development services, application development" />
+  <meta name="author" content="{{ site.author }}" />
+  <meta name="robots" content="index, follow" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="{{ page.url | absolute_url }}" />
-    <meta property="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}" />
-    <meta property="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
-    <meta property="twitter:image" content="{{ '/assets/me.jpg' | absolute_url }}" />
-    <meta property="twitter:image:alt" content="{{ site.author }}" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ page.url | absolute_url }}" />
+  <meta property="og:title"
+    content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}" />
+  <meta property="og:description"
+    content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+  <meta property="og:image" content="{{ '/assets/me.jpg' | absolute_url }}" />
+  <meta property="og:image:alt" content="{{ site.author }}" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="{{ site.author }}" />
+  <meta property="og:locale" content="en_US" />
 
-    <!-- Additional SEO -->
-    <link rel="canonical" href="{{ page.url | absolute_url }}" />
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="{{ page.url | absolute_url }}" />
+  <meta property="twitter:title"
+    content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}" />
+  <meta property="twitter:description"
+    content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+  <meta property="twitter:image" content="{{ '/assets/me.jpg' | absolute_url }}" />
+  <meta property="twitter:image:alt" content="{{ site.author }}" />
 
-    <!-- Structured Data -->
-    {% include structured-data.html %}
+  <!-- Additional SEO -->
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/assets/style.css" />
-    <!-- Prism.js Dark Theme -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230B0907'/><text x='16' y='22' font-family='Arial' font-size='16' fill='%23FF5C00' text-anchor='middle' font-weight='bold'>A</text></svg>"
-      type="image/svg+xml"
-    />
+  <!-- Structured Data -->
+  {% include structured-data.html %}
 
-    <!-- iOS Safari specific meta tags to prevent color inversion -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#0B0907" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0B0907" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0B0907" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="supported-color-schemes" content="dark" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/style.css" />
+  <!-- Prism.js Dark Theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230B0907'/><text x='16' y='22' font-family='Arial' font-size='16' fill='%23FF5C00' text-anchor='middle' font-weight='bold'>A</text></svg>"
+    type="image/svg+xml" />
 
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-5723R25B");
-    </script>
-    <!-- End Google Tag Manager -->
-  </head>
-  <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-5723R25B"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  <!-- iOS Safari specific meta tags to prevent color inversion -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0B0907" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0B0907" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#0B0907" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="supported-color-schemes" content="dark" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-    {% include navigation.html %}
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-5723R25B");
+  </script>
+  <!-- End Google Tag Manager -->
+</head>
 
-    <div class="main-content">
-      {{ content }}
-    </div>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5723R25B" height="0" width="0"
+      style="display: none; visibility: hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Prism.js for Syntax Highlighting -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  {% include navigation.html %}
 
-    <!-- JavaScript Files -->
-    <script src="/assets/projects-data.js"></script>
-    <script src="/assets/utils.js"></script>
-    <script src="/assets/project-slider.js"></script>
-    <script src="/assets/ios-handler.js"></script>
-    <script src="/assets/navigation.js"></script>
-    <script src="/assets/main.js"></script>
-  </body>
+  <div class="main-content">
+    {{ content }}
+  </div>
+
+  <!-- Prism.js for Syntax Highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+  <!-- JavaScript Files -->
+  <script src="/assets/projects-data.js"></script>
+  <script src="/assets/utils.js"></script>
+  <script src="/assets/project-slider.js"></script>
+  <script src="/assets/navigation.js"></script>
+  <script src="/assets/main.js"></script>
+</body>
+
 </html>
