@@ -1702,6 +1702,15 @@ body::after {
    RESPONSIVE
    ============================================================ */
 
+/* Mobile skill pills — hidden on desktop */
+.skill-pills-mobile {
+  display: none;
+}
+
+/* ============================================================
+   TABLET  (≤ 1024px)
+   ============================================================ */
+
 @media (max-width: 1024px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1718,52 +1727,138 @@ body::after {
   }
 }
 
+/* ============================================================
+   MOBILE  (≤ 768px)
+   ============================================================ */
+
 @media (max-width: 768px) {
+  /* Nav */
+  .nav-container { padding: 0 20px; }
+
+  /* Hero layout: stack, avatar first */
   .hero-section {
-    padding: 40px 20px 48px;
+    padding: 36px 20px 52px;
     min-height: auto;
   }
 
   .hero-inner {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 32px;
   }
 
   .hero-avatar-col {
     order: -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 32px; /* buffer so badges don't clip screen edges */
   }
 
+  /* Wrap is larger than the photo — badges orbit the outer boundary */
   .hero-avatar-wrap {
-    width: 220px;
-    height: 220px;
+    width: 270px;
+    height: 270px;
     margin: 0 auto;
   }
 
-  .skill-float { display: none; }
+  /* Photo centered & smaller inside the wrap */
+  .hero-avatar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 190px;
+    height: 190px;
+    border-radius: 20px;
+  }
 
+  /* Badges visible, slightly smaller text */
+  .skill-float {
+    display: block;
+    padding: 5px 10px;
+    font-size: 0.68rem;
+  }
+
+  /* Reposition around the 270px wrap — badges are ~40px from photo edge */
+  .skill-float--1 { top: -4px;  left: -4px;  }
+  .skill-float--2 { top: 32px;  right: -6px; }
+  .skill-float--3 { bottom: 44px; left: -6px;  }
+  .skill-float--4 { bottom: -4px; right: -4px; }
+
+  /* Hide static pills — floating badges are used instead */
+  .skill-pills-mobile { display: none; }
+
+  /* Availability badge — center on mobile */
+  .avail-badge {
+    display: inline-flex;
+  }
+
+  /* Name */
   .hero-name {
-    font-size: clamp(2.6rem, 10vw, 3.5rem);
+    font-size: clamp(2.4rem, 11vw, 3.2rem);
+    line-height: 1.05;
   }
 
+  /* Bio */
+  .hero-bio {
+    font-size: 0.97rem;
+    margin-bottom: 28px;
+  }
+
+  /* Stats — keep in a row, compress */
   .hero-stats {
-    gap: 16px;
-  }
-
-  .services-grid {
-    grid-template-columns: 1fr;
     gap: 12px;
+    margin-bottom: 28px;
   }
 
+  .hstat-val {
+    font-size: 1.5rem;
+  }
+
+  .hstat-lbl {
+    font-size: 0.65rem;
+  }
+
+  .hstat-sep {
+    height: 28px;
+  }
+
+  /* CTA buttons */
+  .hero-actions {
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  /* Contact chips — 2 per row on mobile */
+  .contact-row {
+    gap: 7px;
+  }
+
+  .contact-chip {
+    font-size: 0.78rem;
+    padding: 6px 11px;
+    flex: 1 1 calc(50% - 7px);
+    justify-content: center;
+    min-width: 120px;
+  }
+
+  /* Sections */
   .companies-section,
   .services-section,
   .cta-section {
     padding: 40px 20px;
   }
 
-  .cta-title {
-    font-size: 1.9rem;
+  /* Services: 2-col on tablet, 1-col on mobile */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
+  /* CTA */
+  .cta-title { font-size: 1.85rem; }
+
+  /* Blog */
   .blog-container,
   .blog-post {
     padding: 32px 16px;
@@ -1771,19 +1866,15 @@ body::after {
 
   .blog-title { font-size: 2rem; }
   .post-title { font-size: 1.75rem; }
+  .post-preview-title a { font-size: 1.15rem; }
 
-  .post-preview-title a { font-size: 1.18rem; }
-
-  .post-navigation {
-    flex-direction: column;
-  }
-
+  .post-navigation { flex-direction: column; }
   .next-post { text-align: left; }
 
   .pagination {
     flex-direction: column;
-    gap: 16px;
-    padding: 16px 0;
+    gap: 14px;
+    padding: 14px 0;
   }
 
   .pagination-prev,
@@ -1791,18 +1882,23 @@ body::after {
     width: 100%;
     justify-content: center;
   }
-
-  .nav-container { padding: 0 20px; }
 }
 
+/* ============================================================
+   SMALL MOBILE  (≤ 480px)
+   ============================================================ */
+
 @media (max-width: 480px) {
-  .hero-section { padding: 32px 16px 40px; }
+  .hero-section { padding: 28px 16px 44px; }
 
   .hero-avatar-wrap {
-    width: 190px;
-    height: 190px;
+    width: 172px;
+    height: 172px;
   }
 
+  .hero-avatar { border-radius: 18px; }
+
+  /* Full-width CTA buttons */
   .hero-actions {
     flex-direction: column;
     gap: 10px;
@@ -1812,6 +1908,17 @@ body::after {
   .btn-outline {
     width: 100%;
     justify-content: center;
+  }
+
+  /* Contact chips: full width each */
+  .contact-chip {
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+
+  /* Services: single column */
+  .services-grid {
+    grid-template-columns: 1fr;
   }
 
   .cta-buttons {
