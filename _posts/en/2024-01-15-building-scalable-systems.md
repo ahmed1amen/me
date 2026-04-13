@@ -6,6 +6,7 @@ categories: [Engineering, Architecture]
 tags: [scalability, microservices, architecture, performance]
 author: Ahmed Amen
 excerpt: "Over 13 years of building systems that serve millions of users, I've learned that scalability isn't just about handling more traffic—it's about building systems that can evolve with your business needs."
+lang: en
 ---
 
 Over 13 years of building systems that serve millions of users, I've learned that scalability isn't just about handling more traffic—it's about building systems that can evolve with your business needs.

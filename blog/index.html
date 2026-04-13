@@ -8,12 +8,13 @@ description: "Insights on software engineering, entrepreneurship, and building s
   <header class="blog-header">
     <h1 class="blog-title">Blog</h1>
     <p class="blog-description">
-      Insights on software engineering, entrepreneurship, and building scalable systems that serve millions
+      Insights on software engineering, system design, and building scalable systems that serve millions
     </p>
   </header>
 
   <div class="blog-posts">
-    {% for post in paginator.posts %}
+    {% assign all_posts = site.posts %}
+    {% for post in all_posts limit: 20 %}
     <article class="blog-post-preview">
       <header class="post-preview-header">
         <h2 class="post-preview-title">
@@ -52,40 +53,11 @@ description: "Insights on software engineering, entrepreneurship, and building s
     </article>
     {% endfor %}
 
-    {% if paginator.posts.size == 0 %}
+    {% if all_posts.size == 0 %}
     <div class="no-posts">
       <h3>Coming Soon!</h3>
       <p>Blog posts will appear here. Stay tuned for insights on software engineering and entrepreneurship.</p>
     </div>
     {% endif %}
   </div>
-
-  <!-- Pagination -->
-  {% if paginator.total_pages > 1 %}
-  <nav class="pagination">
-    {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path }}" class="pagination-prev">← Newer Posts</a>
-    {% else %}
-      <span class="pagination-prev disabled">← Newer Posts</span>
-    {% endif %}
-
-    <div class="pagination-pages">
-      {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-          <span class="pagination-page active">{{ page }}</span>
-        {% elsif page == 1 %}
-          <a href="/blog/" class="pagination-page">{{ page }}</a>
-        {% else %}
-          <a href="/blog/page/{{ page }}/" class="pagination-page">{{ page }}</a>
-        {% endif %}
-      {% endfor %}
-    </div>
-
-    {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path }}" class="pagination-next">Older Posts →</a>
-    {% else %}
-      <span class="pagination-next disabled">Older Posts →</span>
-    {% endif %}
-  </nav>
-  {% endif %}
 </div>

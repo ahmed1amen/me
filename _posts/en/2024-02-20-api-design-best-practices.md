@@ -6,6 +6,7 @@ categories: [Engineering, API]
 tags: [api-design, rest, graphql, microservices, best-practices]
 author: Ahmed Amen
 excerpt: "Good API design is like good architecture—it should be intuitive, scalable, and stand the test of time."
+lang: en
 ---
 
 After designing APIs for systems serving millions of requests per day, I've learned that **good API design is like good architecture—it should be intuitive, scalable, and stand the test of time**.

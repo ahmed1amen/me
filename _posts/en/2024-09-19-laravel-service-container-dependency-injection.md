@@ -6,6 +6,7 @@ categories: [Engineering, Backend]
 tags: [laravel, php, dependency-injection, service-container, architecture, design-patterns]
 author: Ahmed Amen
 excerpt: "Master Laravel's service container, dependency injection, automatic binding, and service providers—the foundation that makes Laravel's magic possible."
+lang: en
 ---
 
 Laravel's service container is the beating heart of the framework. **It's the most important concept to master if you want to understand how Laravel works under the hood**—and how to write better, more maintainable code.

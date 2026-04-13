@@ -4,6 +4,7 @@ title: "JMESPath: A Complete Guide to JSON Query Language"
 date: 2025-10-02
 categories: [development, tools]
 tags: [json, jmespath, query-language, data-processing]
+lang: en
 ---
 
 # JMESPath: A Complete Guide to JSON Query Language

@@ -4,6 +4,7 @@ title: "Understanding the Bash Fork Bomb: How It Works and How to Protect Agains
 date: 2025-10-19
 categories: [security, linux]
 tags: [bash, security, dos, linux, system-administration]
+lang: en
 ---
 
 # Understanding the Bash Fork Bomb: How It Works and How to Protect Against It

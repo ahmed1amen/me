@@ -1,0 +1,23 @@
+en:
+  site_title: "Ahmed Amen Ramadan - Senior Software Engineer"
+  blog: "Blog"
+  projects: "Projects"
+  about: "About"
+  contact: "Contact"
+  read_more: "Read More"
+  recent_posts: "Recent Posts"
+  all_posts: "All Posts"
+  posted_on: "Posted on"
+  categories: "Categories"
+
+ar:
+  site_title: "أحمد أمين رمضان - مهندس برمجيات أول"
+  blog: "المدونة"
+  projects: "المشاريع"
+  about: "عني"
+  contact: "اتصل بي"
+  read_more: "اقرأ المزيد"
+  recent_posts: "أحدث المقالات"
+  all_posts: "جميع المقالات"
+  posted_on: "نُشر في"
+  categories: "التصنيفات"

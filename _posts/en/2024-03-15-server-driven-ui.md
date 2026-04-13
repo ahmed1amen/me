@@ -6,6 +6,7 @@ categories: [Engineering, Frontend]
 tags: [server-driven-ui, mobile, architecture, scalability, json-ui]
 author: Ahmed Amen
 excerpt: "Server-Driven UI lets you update your app's interface without releasing new versions—here's how to build it right."
+lang: en
 ---
 
 After shipping mobile apps to millions of users, I learned that **the fastest way to kill momentum is waiting weeks for app store approvals**. Server-Driven UI changed everything for us.

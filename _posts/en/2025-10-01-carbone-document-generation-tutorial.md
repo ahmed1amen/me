@@ -4,6 +4,7 @@ title: "Carbone.io: Self-Hosted Document Generation Made Easy"
 date: 2025-10-01
 categories: [development, backend]
 tags: [document-generation, pdf, templates, nodejs, self-hosted, automation]
+lang: en
 ---
 
 # Carbone.io: Self-Hosted Document Generation Made Easy

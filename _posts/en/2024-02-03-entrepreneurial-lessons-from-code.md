@@ -6,6 +6,7 @@ categories: [Entrepreneurship, Leadership]
 tags: [startup, leadership, product-development, lean-methodology]
 author: Ahmed Amen
 excerpt: "The principles that make great software—modularity, testing, iteration—are the same ones that build successful businesses."
+lang: en
 ---
 
 After spending over a decade writing code and the last few years building companies, I've realized something profound: **the principles that make great software are the same ones that build successful businesses**.
