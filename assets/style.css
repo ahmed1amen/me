@@ -231,30 +231,43 @@ body::after {
 .avail-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border: 1px solid var(--border-active);
-  border-radius: 20px;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 0.75rem;
-  color: var(--accent);
+  gap: 10px;
   margin-bottom: 28px;
-  background: var(--accent-dim);
-  letter-spacing: 0.04em;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 16px;
+}
+
+/* Left vertical bar instead of pill border */
+.avail-badge::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
 }
 
 .avail-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--accent);
-  animation: dotPulse 2s ease-in-out infinite;
+  animation: dotPulse 2.4s ease-in-out infinite;
   flex-shrink: 0;
 }
 
 @keyframes dotPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 92, 0, 0.5); }
-  50%       { box-shadow: 0 0 0 5px rgba(255, 92, 0, 0); }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
 }
 
 /* Name */
