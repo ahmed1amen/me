@@ -1,131 +1,114 @@
 <script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "{{ site.author }}",
-    "jobTitle": "Senior Software Engineer",
-    "description": "{{ site.description }}",
-    "url": "{{ site.url }}",
-    "email": "me@ahmedamen.com",
-    "telephone": "+201127677496",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "EG"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/in/ahmed1amen/",
-      "https://github.com/ahmed1amen",
-      "{{ site.url }}"
-    ],
-    "knowsAbout": [
-      "Software Engineering",
-      "Full Stack Development", 
-      "Enterprise Architecture",
-      "Microservices Architecture",
-      "API Development",
-      "Cloud Solutions",
-      "Scalable Systems",
-      "Backend Development",
-      "Frontend Development",
-      "Mobile App Development",
-      "Database Design",
-      "DevOps",
-      "Technical Leadership",
-      "Software Consulting",
-      "Custom Software Development"
-    ],
-    "hasOccupation": {
-      "@type": "Occupation",
-      "name": "Senior Software Engineer",
-      "occupationLocation": {
-        "@type": "Country",
-        "name": "Egypt"
-      },
-      "skills": [
-        "JavaScript",
-        "TypeScript", 
-        "Python",
-        "Java",
-        "React",
-        "Node.js",
-        "AWS",
-        "Docker",
-        "Kubernetes",
-        "PostgreSQL",
-        "MongoDB",
-        "Redis",
-        "GraphQL",
-        "REST APIs"
-      ]
-    }
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://ahmedamen.com/#person",
+  "name": "Ahmed Amen Ramadan",
+  "alternateName": ["Ahmed Amen", "أحمد أمين رمضان"],
+  "jobTitle": "Senior Software Engineer",
+  "description": "Senior Software Engineer with 13+ years building scalable enterprise systems. Expert in full-stack development, microservices architecture, API design, and cloud solutions.",
+  "url": "https://ahmedamen.com",
+  "email": "me@ahmedamen.com",
+  "telephone": "+201127677496",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://ahmedamen.com/assets/me.jpg",
+    "width": 400,
+    "height": 400
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Ahmed Amen Software Engineering Services",
-    "description": "Professional software engineering and development services for enterprises and startups",
-    "provider": {
-      "@type": "Person",
-      "name": "{{ site.author }}"
-    },
-    "url": "{{ site.url }}",
-    "areaServed": "Worldwide",
-    "serviceType": "Software Development",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Software Engineering Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Enterprise Software Development",
-            "description": "Custom enterprise-grade software solutions"
-          }
-        },
-        {
-          "@type": "Offer", 
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Full Stack Web Development",
-            "description": "End-to-end web application development"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service", 
-            "name": "API Development & Integration",
-            "description": "RESTful APIs and third-party integrations"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Software Architecture Consulting", 
-            "description": "Technical architecture and system design consultation"
-          }
-        }
-      ]
-    }
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "EG",
+    "addressRegion": "Cairo"
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Ahmed Amen Ramadan - Software Engineer",
-    "url": "{{ site.url }}",
-    "author": {
-      "@type": "Person",
-      "name": "{{ site.author }}"
+  "nationality": {
+    "@type": "Country",
+    "name": "Egypt"
+  },
+  "knowsLanguage": ["en", "ar"],
+  "sameAs": [
+    "https://www.linkedin.com/in/ahmed1amen/",
+    "https://github.com/ahmed1amen",
+    "https://wa.me/201127677496",
+    "https://calendly.com/ahmed1amen",
+    "https://ahmedamen.com"
+  ],
+  "knowsAbout": [
+    "Software Engineering",
+    "Full Stack Development",
+    "Enterprise Architecture",
+    "Microservices Architecture",
+    "API Development",
+    "Cloud Solutions",
+    "PHP",
+    "Laravel",
+    "Symfony",
+    "JavaScript",
+    "TypeScript",
+    "Node.js",
+    "NestJS",
+    "React",
+    "Vue.js",
+    "Flutter",
+    "Go",
+    "Docker",
+    "Kubernetes",
+    "AWS",
+    "Azure",
+    "Technical Leadership",
+    "Software Consulting"
+  ],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Senior Software Engineer",
+    "occupationLocation": {
+      "@type": "Country",
+      "name": "Egypt"
     },
-    "description": "{{ site.description }}",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "{{ site.url }}/search?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "estimatedSalary": {
+      "@type": "MonetaryAmountDistribution",
+      "name": "base",
+      "currency": "USD",
+      "duration": "P1Y",
+      "percentile10": 60000,
+      "percentile50": 100000,
+      "percentile90": 150000
+    },
+    "skills": "PHP, Laravel, Symfony, JavaScript, TypeScript, Node.js, NestJS, React, Vue.js, Next.js, Flutter, Go, .NET, Docker, Kubernetes, AWS, Azure, GCP, PostgreSQL, MongoDB, Redis, GraphQL, REST APIs, Microservices"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Freelance / Independent Consultant",
+    "url": "https://ahmedamen.com"
   }
-]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://ahmedamen.com/#website",
+  "name": "Ahmed Amen Ramadan — Senior Software Engineer",
+  "url": "https://ahmedamen.com",
+  "author": {
+    "@type": "Person",
+    "@id": "https://ahmedamen.com/#person"
+  },
+  "description": "Senior Software Engineer with 13+ years building scalable enterprise systems. Available for hire."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://ahmedamen.com/#profilepage",
+  "name": "Ahmed Amen Ramadan — Senior Software Engineer",
+  "url": "https://ahmedamen.com",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://ahmedamen.com/#person"
+  }
+}
 </script>
