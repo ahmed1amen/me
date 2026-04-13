@@ -155,5 +155,13 @@ const projects = [
     image: "https://www.google.com/s2/favicons?domain=fitnesstime.com.sa&sz=128",
     bg: "",
   },
+   {
+    name: "Twlm Solutions",
+    url: "https://twlm.solutions/login",
+    domain: "twlm.solutions",
+    displayUrl: "twlm.solutions",
+    image: "https://www.google.com/s2/favicons?domain=twlm.solutions&sz=128",
+    bg: "",
+  },
 ];
 
