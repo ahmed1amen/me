@@ -69,12 +69,12 @@ const projects = [
       "https://www.google.com/s2/favicons?domain=gazzerapp.com&sz=128",
   },
   {
-    name: "TV3LPC",
-    url: "https://tv3lpc.online/",
-    domain: "tv3lpc.online",
-    displayUrl: "tv3lpc.online",
+    name: "Fitness Time",
+    url: "https://fitnesstime.com.sa/",
+    domain: "fitnesstime.com.sa",
+    displayUrl: "fitnesstime.com.sa",
     image:
-      "https://www.google.com/s2/favicons?domain=tv3lpc.online&sz=128",
+      "https://www.google.com/s2/favicons?domain=fitnesstime.com.sa&sz=128",
   },
   {
     name: "Alef IOT Platform",
