@@ -20,14 +20,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{{ page.url | absolute_url }}" />
   <meta property="og:title"
-    content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}" />
+    content="{% if page.og_title %}{{ page.og_title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.og_title }}{% endif %}" />
   <meta property="og:description"
-    content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+    content="{% if page.og_description %}{{ page.og_description }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.og_description }}{% endif %}" />
   <meta property="og:image" content="{{ '/assets/me-og.jpg' | absolute_url }}" />
   <meta property="og:image:alt" content="{{ site.author }}" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="800" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="{{ site.author }}" />
   <meta property="og:locale" content="en_US" />
 
@@ -35,9 +35,9 @@
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="{{ page.url | absolute_url }}" />
   <meta property="twitter:title"
-    content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}" />
+    content="{% if page.og_title %}{{ page.og_title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.og_title }}{% endif %}" />
   <meta property="twitter:description"
-    content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+    content="{% if page.og_description %}{{ page.og_description }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.og_description }}{% endif %}" />
   <meta property="twitter:image" content="{{ '/assets/me-og.jpg' | absolute_url }}" />
   <meta property="twitter:image:alt" content="{{ site.author }}" />
 

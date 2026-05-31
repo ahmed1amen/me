@@ -18,6 +18,8 @@ paginate_path: "/blog/page/:num/"
 
 # SEO settings
 author: Ahmed Amen Ramadan
+og_title: "Ahmed Amen — Senior Software Engineer"
+og_description: "13+ years building scalable enterprise systems. Full-stack, microservices, cloud. Available for hire."
 twitter:
   username: ahmed1amen
   card: summary_large_image
