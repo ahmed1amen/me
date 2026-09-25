@@ -3,6 +3,15 @@
    Pure DOM; works with or without the WebGL layer.
    ============================================================ */
 (function () {
+  // On the home page, wait for the preloader so the hero reveal is seen
+  if (document.getElementById("preloader") && !document.documentElement.classList.contains("is-loaded")) {
+    addEventListener("app:loaded", init, { once: true });
+  } else {
+    init();
+  }
+})();
+
+function init() {
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const coarse = matchMedia("(pointer: coarse)").matches;
 
@@ -88,4 +97,4 @@
       if (!raf) raf = requestAnimationFrame(apply);
     });
   });
-})();
+}

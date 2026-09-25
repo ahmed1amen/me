@@ -95,6 +95,17 @@
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
 
+  {% if page.url == "/" %}
+  <div id="preloader" class="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <span class="preloader-mark">Ahmed Amen</span>
+      <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+      <span class="preloader-pct"><span class="preloader-num">0</span>%</span>
+    </div>
+  </div>
+  <noscript><style>.preloader { display: none !important; }</style></noscript>
+  {% endif %}
+
   {% include navigation.html %}
 
   <div class="main-content">
@@ -112,6 +123,7 @@
   <script src="/assets/navigation.js"></script>
   <script src="/assets/main.js"></script>
   {% if page.url == "/" %}
+  <script src="/assets/preloader.js" defer></script>
   <script src="/assets/depth.js" defer></script>
   <script type="module" src="/assets/forge-scene.js"></script>
   {% endif %}

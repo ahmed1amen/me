@@ -25,6 +25,7 @@ function boot(canvas) {
     });
   } catch (err) {
     canvas.remove();
+    dispatchEvent(new Event("forge:ready"));
     return;
   }
   document.documentElement.classList.add("has-forge");
@@ -251,6 +252,7 @@ function boot(canvas) {
   const clock = new THREE.Clock();
   let yaw = 0.55;
   let running = true;
+  let announced = false;
 
   function frame() {
     if (running) requestAnimationFrame(frame);
@@ -341,6 +343,10 @@ function boot(canvas) {
     }
 
     renderer.render(scene, camera);
+    if (!announced) {
+      announced = true;
+      dispatchEvent(new Event("forge:ready"));
+    }
   }
 
   document.addEventListener("visibilitychange", () => {
