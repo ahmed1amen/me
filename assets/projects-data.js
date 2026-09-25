@@ -82,11 +82,11 @@ const projects = [
     bg: "",
   },
   {
-    name: "Aqarzway",
-    url: "https://jo.aqarzway.com/",
-    domain: "aqarzway.com",
-    displayUrl: "aqarzway.com",
-    image: "https://jo.aqarzway.com/storage/app/ico/thumb-32x32-ico-63d9623ed14b8.png",
+    name: "Leejam Sports",
+    url: "https://leejam.com.sa/",
+    domain: "leejam.com.sa",
+    displayUrl: "leejam.com.sa",
+    image: "https://www.google.com/s2/favicons?domain=leejam.com.sa&sz=128",
     bg: "",
   },
   {
