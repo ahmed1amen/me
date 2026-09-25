@@ -287,8 +287,15 @@ class ProjectSlider {
     // Split by ring circumference so logos keep the same spacing on both rings
     const R_INNER = 130, R_OUTER = 250;
     const innerCount = Math.max(4, Math.round(projects.length * R_INNER / (R_INNER + R_OUTER)));
-    const inner = projects.slice(0, innerCount);
-    const outer = projects.slice(innerCount);
+
+    // Shuffle so similar-looking logos don't cluster together (Fisher-Yates)
+    const shuffled = projects.slice();
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    const inner = shuffled.slice(0, innerCount);
+    const outer = shuffled.slice(innerCount);
 
     inner.forEach((p, i) => {
       const angle = (i / inner.length) * 360 - 90; // start from top
