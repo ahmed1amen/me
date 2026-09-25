@@ -637,13 +637,13 @@ body::after {
 .orbit-ring--inner {
   width: 300px; height: 300px;
   margin: -150px 0 0 -150px;
-  animation: orbit-cw 22s linear infinite;
+  animation: orbit-cw var(--orbit-inner-dur) linear infinite;
 }
 
 .orbit-ring--outer {
-  width: 510px; height: 510px;
-  margin: -255px 0 0 -255px;
-  animation: orbit-ccw 38s linear infinite;
+  width: 540px; height: 540px;
+  margin: -270px 0 0 -270px;
+  animation: orbit-ccw var(--orbit-outer-dur) linear infinite;
 }
 
 /* Each logo is positioned via x/y coordinates (no rotation on wrapper,
@@ -656,8 +656,8 @@ body::after {
 }
 
 /* Counter-rotate to keep logos upright */
-.orbit-ring--inner .orbit-upright { animation: upright-ccw 22s linear infinite; }
-.orbit-ring--outer .orbit-upright { animation: upright-cw  38s linear infinite; }
+.orbit-ring--inner .orbit-upright { animation: upright-ccw var(--orbit-inner-dur) linear infinite; }
+.orbit-ring--outer .orbit-upright { animation: upright-cw  var(--orbit-outer-dur) linear infinite; }
 
 @keyframes upright-cw  { from { transform: rotate(0deg)  rotateX(calc(-1 * var(--orbit-tilt))); }
                          to   { transform: rotate(360deg)  rotateX(calc(-1 * var(--orbit-tilt))); } }
@@ -2324,7 +2324,11 @@ body::after {
    DEPTH / 3D LAYER  (home page)
    ============================================================ */
 
-:root { --orbit-tilt: 50deg; }
+:root {
+  --orbit-tilt: 42deg;
+  --orbit-inner-dur: 70s;
+  --orbit-outer-dur: 110s;
+}
 
 /* Fixed WebGL canvas behind all page content */
 .forge-canvas {
@@ -2451,4 +2455,40 @@ body::after {
   .hero-avatar-wrap[data-tilt] .skill-float { --lift: 0px; }
   .orbit-tilt::before { width: 520px; height: 520px; margin: -260px 0 0 -260px; }
   .orbit-scene { margin-bottom: -240px; }
+}
+
+/* Phone polish */
+.companies-count { white-space: nowrap; }
+
+@media (max-width: 480px) {
+  .companies-header { flex-wrap: wrap; gap: 10px; }
+  .orbit-scene { transform: translateX(-50%) scale(0.5); margin-bottom: -270px; }
+}
+
+.orbit-logo {
+  background: var(--bg-elevated);
+  border-color: rgba(255, 92, 0, 0.22);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.orbit-logo:hover {
+  transform: scale(1.22);
+}
+
+/* Orbit hit-testing: keep the scene above the following section (it overlaps
+   via negative margin) and let clicks pass through the ring tracks to the logos */
+.companies-section {
+  position: relative;
+  z-index: 2;
+}
+
+.orbit-tilt,
+.orbit-ring,
+.orbit-item-wrap,
+.orbit-upright {
+  pointer-events: none;
+}
+
+.orbit-logo {
+  pointer-events: auto;
 }

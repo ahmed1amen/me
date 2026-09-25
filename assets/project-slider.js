@@ -278,18 +278,26 @@ class ProjectSlider {
     const outerRing = document.getElementById('orbit-outer');
     if (!innerRing || !outerRing) return;
 
-    const mid = Math.ceil(projects.length / 2);
-    const inner = projects.slice(0, mid);
-    const outer = projects.slice(mid);
+    // keep the counters in sync with the data
+    const num = document.querySelector('.orbit-center-num');
+    const badge = document.querySelector('.companies-count');
+    if (num) num.textContent = projects.length;
+    if (badge) badge.textContent = `${projects.length} enterprises`;
+
+    // Split by ring circumference so logos keep the same spacing on both rings
+    const R_INNER = 130, R_OUTER = 250;
+    const innerCount = Math.max(4, Math.round(projects.length * R_INNER / (R_INNER + R_OUTER)));
+    const inner = projects.slice(0, innerCount);
+    const outer = projects.slice(innerCount);
 
     inner.forEach((p, i) => {
       const angle = (i / inner.length) * 360 - 90; // start from top
-      innerRing.innerHTML += this.createOrbitItem(p, angle, 130);
+      innerRing.innerHTML += this.createOrbitItem(p, angle, R_INNER);
     });
 
     outer.forEach((p, i) => {
       const angle = (i / outer.length) * 360 - 90;
-      outerRing.innerHTML += this.createOrbitItem(p, angle, 235);
+      outerRing.innerHTML += this.createOrbitItem(p, angle, R_OUTER);
     });
   }
 
