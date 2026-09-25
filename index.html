@@ -6,11 +6,12 @@ development, microservices architecture, API design, and cloud solutions. Availa
 ---
 
 <!-- HERO -->
+<canvas id="forge" class="forge-canvas" aria-hidden="true"></canvas>
 <section class="hero-section">
   <div class="hero-inner">
 
     <!-- Left: text content -->
-    <div class="hero-content">
+    <div class="hero-content" data-reveal-group>
       <div class="avail-badge">
         <span class="avail-dot"></span>
         Available for hire
@@ -99,8 +100,8 @@ development, microservices architecture, API design, and cloud solutions. Availa
     </div>
 
     <!-- Right: avatar -->
-    <div class="hero-avatar-col">
-      <div class="hero-avatar-wrap">
+    <div class="hero-avatar-col" data-reveal style="--i:2">
+      <div class="hero-avatar-wrap" data-tilt="9">
         <img src="/assets/me.jpg" alt="Ahmed Amen Ramadan" class="hero-avatar" onerror="handleImageError(this)" />
         <div class="skill-float skill-float--1">Full Stack</div>
         <div class="skill-float skill-float--2">Microservices</div>
@@ -119,25 +120,28 @@ development, microservices architecture, API design, and cloud solutions. Availa
   </div>
   <!-- Scroll indicator -->
   <a href="#next-section" class="scroll-arrow" aria-label="Scroll down">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M6 9l6 6 6-6"/>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path d="M6 9l6 6 6-6" />
     </svg>
   </a>
 </section>
 
 <!-- COMPANIES -->
 <section class="companies-section" id="next-section">
-  <div class="companies-inner">
+  <div class="companies-inner" data-reveal>
     <div class="companies-header">
       <p class="companies-label">Companies I've engineered for</p>
       <span class="companies-count">19 enterprises</span>
     </div>
     <div class="orbit-scene">
-      <div class="orbit-ring orbit-ring--outer" id="orbit-outer"></div>
-      <div class="orbit-ring orbit-ring--inner" id="orbit-inner"></div>
-      <div class="orbit-center">
-        <span class="orbit-center-num">19</span>
-        <span class="orbit-center-txt">enterprises</span>
+      <div class="orbit-tilt">
+        <div class="orbit-ring orbit-ring--outer" id="orbit-outer"></div>
+        <div class="orbit-ring orbit-ring--inner" id="orbit-inner"></div>
+        <div class="orbit-center">
+          <span class="orbit-center-num">19</span>
+          <span class="orbit-center-txt">enterprises</span>
+        </div>
       </div>
     </div>
   </div>
@@ -146,9 +150,9 @@ development, microservices architecture, API design, and cloud solutions. Availa
 <!-- SERVICES -->
 <section class="services-section">
   <div class="services-inner">
-    <h2 class="section-label">What I Build</h2>
-    <div class="services-grid">
-      <div class="service-item">
+    <h2 class="section-label" data-reveal>What I Build</h2>
+    <div class="services-grid" data-reveal-group>
+      <div class="service-item" data-tilt="6">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
             stroke-linejoin="round">
@@ -160,7 +164,7 @@ development, microservices architecture, API design, and cloud solutions. Availa
         <p>Custom enterprise applications built to scale with your business. Full-stack solutions using modern,
           battle-tested technologies.</p>
       </div>
-      <div class="service-item">
+      <div class="service-item" data-tilt="6">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
             stroke-linejoin="round">
@@ -171,7 +175,7 @@ development, microservices architecture, API design, and cloud solutions. Availa
         <p>RESTful APIs, GraphQL endpoints, and seamless third-party integrations that connect your systems reliably at
           scale.</p>
       </div>
-      <div class="service-item">
+      <div class="service-item" data-tilt="6">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
             stroke-linejoin="round">
@@ -182,7 +186,7 @@ development, microservices architecture, API design, and cloud solutions. Availa
         <p>AWS, Azure, and GCP solutions. Microservices, containerization, and infrastructure that grows with your
           product.</p>
       </div>
-      <div class="service-item">
+      <div class="service-item" data-tilt="6">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
             stroke-linejoin="round">
@@ -194,7 +198,7 @@ development, microservices architecture, API design, and cloud solutions. Availa
         <p>Cross-platform iOS and Android apps with React Native and Flutter. Native performance, shared codebase, and
           App Store / Play Store ready.</p>
       </div>
-      <div class="service-item">
+      <div class="service-item" data-tilt="6">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
             stroke-linejoin="round">
@@ -206,7 +210,7 @@ development, microservices architecture, API design, and cloud solutions. Availa
         <p>Fractional CTO, technical strategy, architecture reviews, and team mentoring for startups and enterprise
           teams.</p>
       </div>
-      <div class="service-item">
+      <div class="service-item" data-tilt="6">
         <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
             stroke-linejoin="round">
@@ -227,9 +231,9 @@ development, microservices architecture, API design, and cloud solutions. Availa
 <!-- TECH SKILLS -->
 <section class="skills-section">
   <div class="skills-inner">
-    <h2 class="section-label">Tech Stack &amp; Tools</h2>
+    <h2 class="section-label" data-reveal>Tech Stack &amp; Tools</h2>
 
-    <div class="skill-groups">
+    <div class="skill-groups" data-reveal-group>
 
       <!-- Languages & Frameworks -->
       <div class="skill-group">
@@ -238,6 +242,9 @@ development, microservices architecture, API design, and cloud solutions. Availa
           <div class="skill-logo-card"><img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP"
               loading="lazy"><span>PHP</span></div>
+          <div class="skill-logo-card"><img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C#"
+              loading="lazy"><span>C#</span></div>
           <div class="skill-logo-card"><img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
               alt="JavaScript" loading="lazy"><span>JavaScript</span></div>
@@ -271,9 +278,6 @@ development, microservices architecture, API design, and cloud solutions. Availa
           <div class="skill-logo-card"><img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg" alt="GraphQL"
               loading="lazy"><span>GraphQL</span></div>
-          <div class="skill-logo-card"><img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" alt="C#"
-              loading="lazy"><span>C#</span></div>
           <div class="skill-logo-card"><img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg"
               alt=".NET" loading="lazy"><span>.NET</span></div>
@@ -431,7 +435,7 @@ development, microservices architecture, API design, and cloud solutions. Availa
 
 <!-- CTA -->
 <section class="cta-section">
-  <div class="cta-inner">
+  <div class="cta-inner" data-reveal>
     <h2 class="cta-title">Ready to build something great?</h2>
     <p class="cta-description">
       Transform your business ideas into scalable software. Available for enterprise development,

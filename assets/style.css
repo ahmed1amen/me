@@ -563,13 +563,13 @@ body::after {
 }
 
 @keyframes floatA {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-8px); }
+  0%, 100% { transform: translateY(0px) translateZ(var(--lift, 0px)); }
+  50%       { transform: translateY(-8px) translateZ(var(--lift, 0px)); }
 }
 
 @keyframes floatB {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(7px); }
+  0%, 100% { transform: translateY(0px) translateZ(var(--lift, 0px)); }
+  50%       { transform: translateY(7px) translateZ(var(--lift, 0px)); }
 }
 
 /* ============================================================
@@ -656,8 +656,13 @@ body::after {
 }
 
 /* Counter-rotate to keep logos upright */
-.orbit-ring--inner .orbit-upright { animation: orbit-ccw 22s linear infinite; }
-.orbit-ring--outer .orbit-upright { animation: orbit-cw  38s linear infinite; }
+.orbit-ring--inner .orbit-upright { animation: upright-ccw 22s linear infinite; }
+.orbit-ring--outer .orbit-upright { animation: upright-cw  38s linear infinite; }
+
+@keyframes upright-cw  { from { transform: rotate(0deg)  rotateX(calc(-1 * var(--orbit-tilt))); }
+                         to   { transform: rotate(360deg)  rotateX(calc(-1 * var(--orbit-tilt))); } }
+@keyframes upright-ccw { from { transform: rotate(0deg)  rotateX(calc(-1 * var(--orbit-tilt))); }
+                         to   { transform: rotate(-360deg) rotateX(calc(-1 * var(--orbit-tilt))); } }
 
 /* Logo circle */
 .orbit-logo {
@@ -944,8 +949,8 @@ body::after {
 .service-item:hover {
   border-color: var(--border-active);
   background: var(--glass-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --ty: -4px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
 }
 
 .service-item:hover::after { width: 100%; }
@@ -2312,4 +2317,138 @@ body::after {
     width: 100%;
     max-width: 250px;
   }
+}
+
+
+/* ============================================================
+   DEPTH / 3D LAYER  (home page)
+   ============================================================ */
+
+:root { --orbit-tilt: 50deg; }
+
+/* Fixed WebGL canvas behind all page content */
+.forge-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  display: block;
+}
+
+/* Reveals: elements rise out of the page plane */
+[data-reveal] {
+  opacity: 0;
+  transform: perspective(1200px) translateY(28px) rotateX(6deg);
+  transform-origin: 50% 100%;
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Pointer tilt */
+[data-tilt] {
+  --rx: 0deg;
+  --ry: 0deg;
+  transform-style: preserve-3d;
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--ty, 0px));
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+/* Hero photo becomes a card floating in front of the lattice */
+.hero-avatar-wrap[data-tilt] .hero-avatar {
+  transform: translateZ(24px);
+}
+
+.hero-avatar-wrap[data-tilt] .skill-float {
+  --lift: 56px;
+}
+
+.hero-avatar-wrap[data-tilt] .skill-float--2,
+.hero-avatar-wrap[data-tilt] .skill-float--3 {
+  --lift: 84px;
+}
+
+/* Service cards: content sits slightly above the surface */
+.service-item[data-tilt] > * {
+  transform: translateZ(14px);
+}
+
+/* Company orbit: a real ring in space, logos stand upright */
+.orbit-scene {
+  perspective: 1100px;
+  margin-bottom: -96px;
+}
+
+.orbit-tilt {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--orbit-tilt));
+}
+
+.orbit-tilt::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 560px;
+  height: 560px;
+  margin: -280px 0 0 -280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 92, 0, 0.09) 0%, rgba(255, 92, 0, 0.03) 45%, transparent 70%);
+  pointer-events: none;
+}
+
+.orbit-ring,
+.orbit-item-wrap,
+.orbit-upright {
+  transform-style: preserve-3d;
+}
+
+.orbit-ring--outer { border-color: rgba(255, 92, 0, 0.14); }
+
+.orbit-center {
+  transform: translate(-50%, -50%) rotateX(calc(-1 * var(--orbit-tilt))) translateZ(24px);
+}
+
+/* Closing section reads over the reassembled lattice */
+.cta-title {
+  text-shadow: 0 2px 28px rgba(11, 9, 7, 0.85);
+}
+
+.cta-description {
+  text-shadow: 0 1px 16px rgba(11, 9, 7, 0.85);
+}
+
+/* Motion + device guards */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  [data-tilt] { transition: none; }
+  .orbit-ring,
+  .orbit-upright { animation: none; }
+}
+
+@media (max-width: 768px) {
+  .hero-avatar-wrap[data-tilt] { transform: none; }
+  .hero-avatar-wrap[data-tilt] .hero-avatar { transform: none; }
+  .hero-avatar-wrap[data-tilt] .skill-float { --lift: 0px; }
+  .orbit-tilt::before { width: 520px; height: 520px; margin: -260px 0 0 -260px; }
+  .orbit-scene { margin-bottom: -240px; }
 }

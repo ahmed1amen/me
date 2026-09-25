@@ -49,6 +49,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  {% if page.url == "/" %}<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />{% endif %}
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
@@ -110,6 +111,10 @@
   <script src="/assets/project-slider.js"></script>
   <script src="/assets/navigation.js"></script>
   <script src="/assets/main.js"></script>
+  {% if page.url == "/" %}
+  <script src="/assets/depth.js" defer></script>
+  <script type="module" src="/assets/forge-scene.js"></script>
+  {% endif %}
 </body>
 
 </html>
